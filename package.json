@@ -22,10 +22,9 @@
   "_resolved": "https://registry.npmjs.org/coshape/-/coshape-0.0.1.tgz",
   "_shasum": "029f0c2fd32661db3f3c59cdca72ae0a5c9d5f39",
   "_spec": "coshape",
-  "_where": "/home/fuchs/work/coshape/projectcreator",
   "author": {
-    "name": "Andreas Fuchs",
-    "email": "andreas@coshape.is",
+    "name": "coshape",
+    "email": "coshape.is@gmail.com",
     "url": "https://coshape.io"
   },
   "bundleDependencies": false,
