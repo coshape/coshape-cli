@@ -16,6 +16,9 @@
     "cli"
   ],
   "license": "ISC",
+  "bin": {
+    "coshape":"./bin/coshape.js"
+  },
   "main": "index.js",
   "name": "coshape",
   "scripts": {
