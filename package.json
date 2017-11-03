@@ -1,27 +1,4 @@
 {
-  "_from": "coshape",
-  "_id": "coshape@0.0.1",
-  "_inBundle": false,
-  "_integrity": "sha512-MwEGfx2siO+q9OArdbJvRrw1djEpiJk86ZEAaybALfghTaetOVm8FNgOjedTtKPiaW1e1ok2xhpqMFB8V5wM0w==",
-  "_location": "/coshape",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "coshape",
-    "name": "coshape",
-    "escapedName": "coshape",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/coshape/-/coshape-0.0.1.tgz",
-  "_shasum": "029f0c2fd32661db3f3c59cdca72ae0a5c9d5f39",
-  "_spec": "coshape",
   "author": {
     "name": "coshape",
     "email": "coshape.is@gmail.com",
