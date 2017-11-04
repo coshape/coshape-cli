@@ -4,6 +4,10 @@
     "email": "coshape.is@gmail.com",
     "url": "https://coshape.io"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/coshape/coshape-cli.git"
+  },
   "bundleDependencies": false,
   "deprecated": false,
   "description": "build system for web and mobile 3D product customizers and configurators.",
@@ -26,8 +30,14 @@
   },
   "version": "0.0.5",
   "dependencies": {
+    "copy-dir": "^0.3.0",
     "express": "^4.16.2",
+    "js-yaml": "^3.10.0",
+    "jsonfile": "^4.0.0",
+    "mkdirp": "^0.5.1",
+    "mustache": "^2.3.0",
     "nomnom": "^1.8.1",
-    "npmlog": "^4.1.2"
+    "npmlog": "^4.1.2",
+    "yaml-include": "^1.2.0"
   }
 }

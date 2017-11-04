@@ -6,15 +6,15 @@ console.log("/ - - -  / - - \\  / - - -  -     -  / - - \\  - - - \\  / - - -\n-
     
 nomnom.script("coshape");
 nomnom.command('init')
-    .option('collection', {
+    .option('workspace', {
       position: 1,
       default: './coshape_projects',
-      help: "collection name or path"
+      help: "workspace name or path"
     })
     .callback(function(opts) {
-        cs.init(opts.collection);
+        cs.init(opts.workspace);
     })
-    .help("initialize a workspace for the project collection")
+    .help("initialize a workspace for the project workspace")
 nomnom.command('new')
     .option('project', {
       position: 1,

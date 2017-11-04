@@ -1,16 +1,28 @@
 'use strict'
-var Generator = require("./lib/generator")
-	, Server = require("./lib/server")
-	, Utils = require("./lib/utils");
+var generator = require("./lib/generator")
+	, server = require("./lib/server")
+	, utils = require("./lib/utils");
 
 // create a new project
 // projectpath can be relative or absolute
 exports.init = function(projectpath) {
 	try {
-		Generator.init(Utils.normalize_path(projectpath));
+		var settings = generator.createSettings(utils.normalizePath(projectpath));
+		generator.createWorkspace(settings);
 	} catch (ex) {
-		Utils.error(ex, "init");
-		Utils.info("init -h for details");
+		utils.error(ex, "init");
+		utils.info("init -h for details");
+	}
+}
+
+// create a new project
+// projectpath can be relative or absolute
+exports.new = function(projectpath) {
+	try {
+		generator.createProject(utils.normalizePath(projectpath));
+	} catch (ex) {
+		utils.error(ex, "init");
+		utils.info("init -h for details");
 	}
 }
 
@@ -18,10 +30,10 @@ exports.init = function(projectpath) {
 // projectpath can be relative or absolute
 exports.build = function(projectpath = ".") {
 	try {
-		Generator.build(Utils.normalize_path(projectpath));
+		generator.buildProject(utils.normalizePath(projectpath));
 	} catch (ex) {
-		Utils.error(ex, "build");
-		Utils.info("build -h for details");
+		utils.error(ex, "build");
+		utils.info("build -h for details");
 	}
 }
 
@@ -29,10 +41,10 @@ exports.build = function(projectpath = ".") {
 // projectpath can be relative or absolute
 exports.host = function(projectpath = ".") {
 	try {
-		Server.host(Utils.normalize_path(projectpath));
+		server.host(utils.normalizePath(projectpath));
 	} catch (ex) {
-		Utils.error(ex, "host");
-		Utils.info("host -h for details");
+		utils.error(ex, "host");
+		utils.info("host -h for details");
 	}
 }
 
