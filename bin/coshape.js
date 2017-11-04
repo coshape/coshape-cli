@@ -1,24 +1,47 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
 var nomnom = require('nomnom');
-
-var opts = nomnom
-    .script('coshape')
-    .option('command', {
-        position: 0,
-        help: "Command is on of these: 'create', 'search', 'sync', 'upadte', 'upload', 'download'",
+var cs = require('../index.js');
+console.log("/ - - -  / - - \\  / - - -  -     -  / - - \\  - - - \\  / - - -\n-        -     -  \\ - - \\  - - - -  - - - -  - - - /  - - -  \n\\ - - -  \\ - - /  - - - /  -     -  -     -  -        \\ - - - " + require('../package.json').version);
+    
+nomnom.script("coshape");
+nomnom.command('init')
+    .option('collection', {
+      position: 1,
+      default: './coshape_projects',
+      help: "collection name or path"
     })
-    .option('version', {
-        abbr: 'v',
-        flag: true,
-        help: "Print version and exit",
-        callback: function() {
-            return require('../package.json').version;
-        }
+    .callback(function(opts) {
+        cs.init(opts.collection);
     })
-    .parse();
-
-console.log("Coshape Cli")
-console.log("options:")
-console.log(opts.out);
+    .help("initialize a workspace for the project collection")
+nomnom.command('new')
+    .option('project', {
+      position: 1,
+      help: "project name or path"
+    })
+    .callback(function(opts) {
+        cs.init(opts.project);
+    })
+    .help("create a new project")
+nomnom.command('build')
+    .option('project', {
+      position: 1,
+      default: '.',
+      help: "project name or path"
+    })
+    .callback(function(opts) {
+        cs.build(opts.project);
+    })
+    .help("build project in current working directory or provided path")
+nomnom.command('host')
+.option('project', {
+      position: 1,
+      default: '.',
+      help: "project name or path"
+    })
+    .callback(function(opts) {
+        cs.host(opts.project);
+    })
+    .help("host project in current working directory or provided path")
+nomnom.parse();   
