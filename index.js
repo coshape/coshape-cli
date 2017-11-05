@@ -7,7 +7,7 @@ var generator = require("./lib/generator")
 // projectpath can be relative or absolute
 exports.init = function(projectpath) {
 	try {
-		var settings = generator.createSettings(utils.normalizePath(projectpath));
+		var settings = generator.createSettings(projectpath);
 		generator.createWorkspace(settings);
 	} catch (ex) {
 		utils.error(ex, "init");
@@ -19,7 +19,7 @@ exports.init = function(projectpath) {
 // projectpath can be relative or absolute
 exports.new = function(projectpath) {
 	try {
-		generator.createProject(utils.normalizePath(projectpath));
+		generator.createProject(utils.pathNormalize(projectpath));
 	} catch (ex) {
 		utils.error(ex, "init");
 		utils.info("init -h for details");
@@ -30,7 +30,7 @@ exports.new = function(projectpath) {
 // projectpath can be relative or absolute
 exports.build = function(projectpath = ".") {
 	try {
-		generator.buildProject(utils.normalizePath(projectpath));
+		generator.buildProject(utils.pathNormalize(projectpath));
 	} catch (ex) {
 		utils.error(ex, "build");
 		utils.info("build -h for details");
@@ -41,7 +41,7 @@ exports.build = function(projectpath = ".") {
 // projectpath can be relative or absolute
 exports.host = function(projectpath = ".") {
 	try {
-		server.host(utils.normalizePath(projectpath));
+		server.host(utils.pathNormalize(projectpath));
 	} catch (ex) {
 		utils.error(ex, "host");
 		utils.info("host -h for details");

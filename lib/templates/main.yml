@@ -1,0 +1,4 @@
+---
+main:
+	author: {{author}}
+	name: {{name}}
