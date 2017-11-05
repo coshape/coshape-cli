@@ -30,7 +30,7 @@ exports.new = function(projectpath) {
 // projectpath can be relative or absolute
 exports.build = function(projectpath = ".") {
 	try {
-		generator.buildProject(utils.pathNormalize(projectpath));
+		generator.buildWorkspace(utils.pathNormalize(projectpath));
 	} catch (ex) {
 		utils.error(ex, "build");
 		utils.info("build -h for details");
