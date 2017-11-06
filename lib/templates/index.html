@@ -1,1 +1,1104 @@
-moin moin!
+<!DOCTYPE html><html lang="en"><head><title>{{name}} - Coshape Project</title><meta name="description" content="Coshape Maker Projects is a creativity platform that combines customizable 3D models, instructional resources, and remixing tools for crafting zero-to-maker experiences."><link rel="stylesheet" href="/styles/bootstrap.min.css"><link rel="stylesheet" href="/styles/assets/video.css"><style>/*
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(0, 0, 255, 0.2);
+  border-right: 1.1em solid rgba(0, 0, 255, 0.2);
+  border-bottom: 1.1em solid rgba(0, 0, 255, 0.2);
+  border-left: 1.1em solid #0000ff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+*/
+
+.loader {
+  margin: 100px auto;
+  font-size: 25px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+@keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+
+
+
+input[type=range].slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 9.6px 0;
+}
+input[type=range].slider:focus {
+  outline: none;
+}
+input[type=range].slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1.8px;
+  cursor: pointer;
+  box-shadow: 0.1px 0.1px 1.4px #000000, 0px 0px 0.1px #0d0d0d;
+  background: #4c4d4d;
+  border-radius: 0px;
+  border: 0px solid #010100;
+}
+input[type=range].slider::-webkit-slider-thumb {
+  box-shadow: 0px 0px 1px #670000, 0px 0px 0px #810000;
+  border: 0px solid #00cbff;
+  height: 21px;
+  width: 21px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.98);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9.6px;
+}
+input[type=range].slider:focus::-webkit-slider-runnable-track {
+  background: #595a5a;
+}
+input[type=range].slider::-moz-range-track {
+  width: 100%;
+  height: 1.8px;
+  cursor: pointer;
+  box-shadow: 0.1px 0.1px 1.4px #000000, 0px 0px 0.1px #0d0d0d;
+  background: #4c4d4d;
+  border-radius: 0px;
+  border: 0px solid #010100;
+}
+input[type=range].slider::-moz-range-thumb {
+  box-shadow: 0px 0px 1px #670000, 0px 0px 0px #810000;
+  border: 0px solid #00cbff;
+  height: 21px;
+  width: 21px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.98);
+  cursor: pointer;
+}
+input[type=range].slider::-ms-track {
+  width: 100%;
+  height: 1.8px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].slider::-ms-fill-lower {
+  background: #3f4040;
+  border: 0px solid #010100;
+  border-radius: 0px;
+  box-shadow: 0.1px 0.1px 1.4px #000000, 0px 0px 0.1px #0d0d0d;
+}
+input[type=range].slider::-ms-fill-upper {
+  background: #4c4d4d;
+  border: 0px solid #010100;
+  border-radius: 0px;
+  box-shadow: 0.1px 0.1px 1.4px #000000, 0px 0px 0.1px #0d0d0d;
+}
+input[type=range].slider::-ms-thumb {
+  box-shadow: 0px 0px 1px #670000, 0px 0px 0px #810000;
+  border: 0px solid #00cbff;
+  height: 21px;
+  width: 21px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.98);
+  cursor: pointer;
+  height: 1.8px;
+}
+input[type=range].slider:focus::-ms-fill-lower {
+  background: #4c4d4d;
+}
+input[type=range].slider:focus::-ms-fill-upper {
+  background: #595a5a;
+}
+
+</style><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"><link rel="stylesheet" href="/styles/bootstrap-treeview.min.css"><script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/styles/bootstrap-treeview.min.js"></script>
+<script type="text/javascript" src="/js/dat.gui.min.js"></script>
+<script type="text/javascript" src="/openjscad.js"></script>
+<script type="text/javascript" src="/csg.js"></script>
+<script type="text/javascript" src="/js/three.min.js"></script>
+<script type="text/javascript" src="/js/STLLoader.js"></script>
+<script type="text/javascript" src="/js/TrackballControls.js"></script>
+<script type="text/javascript" src="/js/OrbitControls.js"></script>
+<script type="text/javascript" src="/js/TransformControlls.js"></script>
+<script type="text/javascript" src="/js/modeling/importer.js"></script>
+<script type="text/javascript" src="/js/modeling/exporter.js"></script>
+<script type="text/javascript" src="/js/modeling/view.js"></script>
+<script type="text/javascript" src="/js/modeling/modeler.js"></script>
+<script type="text/javascript" src="/js/geometryutil.js"></script>
+<script type="text/javascript" src="/js/clipper.js"></script>
+<script type="text/javascript" src="/js/parallel.js"></script>
+<script type="text/javascript" src="/js/pathsegpolyfill.js"></script>
+<script type="text/javascript" src="/js/matrix.js"></script>
+<script type="text/javascript" src="/js/domparser.js"></script>
+<script type="text/javascript" src="/js/placementworker.js"></script>
+<script type="text/javascript" src="/js/parallel.js"></script>
+<script type="text/javascript" src="/js/svgparser.js"></script>
+<script type="text/javascript" src="/js/svgnest.js"></script>
+<script type="text/javascript" src="/customizer.js"></script>
+<script src="/styles/jszip.min.js"></script>
+<script src="/styles/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/styles/blob-stream.js"></script>
+<script src="/styles/pdfkit.js"></script><script>$(document).ready( function() {
+  	download_manual();		
+});
+
+
+
+// $(document).ready( function() 
+$(function() 
+{
+
+  XMOD.Customizer.init();
+  // append_shape_code
+
+  XMOD.Customizer.io_ids = [];
+  {{#interface_list}}
+  XMOD.Customizer.io.{{name}} = {{value}};
+  XMOD.Customizer.io_ids.push("{{name}}");
+  {{/interface_list}}
+
+  function rgb(r,g,b) {
+      return {r:r,g:g,b:b};
+  }
+
+  function model_loaded() {
+  	// download_manual();
+  	var url = XMOD.Customizer.image();
+  	show_busy(false);
+  }
+
+  var c_comps = 0;
+  var c_done = 0;
+
+  function proc_file(type, filepath, material, trans_callback, parameter_callback) {
+    if (type === "jscad") {
+      if (filepath != "") {
+        console.log("filepath " + filepath);
+      	c_comps ++;
+
+        $.ajax({ 
+          type: "GET",
+          dataType: "text",
+          url: "/api/" + filepath,
+          success: function(data) { 
+            //console.log(data);
+              material.color = eval(material.color);
+            console.log(material.color);
+            XMOD.Customizer.append_shape_code(data, trans_callback, XMOD.Customizer.io
+              , material, parameter_callback); 
+          },
+          error: function(err) { 
+            console.log("Error!"); 
+            console.log(err); 
+          }
+        });
+      }
+    } else if (type === "svg") {
+      // ...
+    } else if (type === "stl") {
+      if (filepath != "") {
+        var oReq = new XMLHttpRequest();
+        oReq.open("GET", "/api/" + filepath, true);
+        oReq.responseType = "arraybuffer";
+
+      	c_comps ++;
+
+        oReq.onload = function(oEvent) {
+          //console.log(this.response);
+          var arrayBuffer = this.response; //new ArrayBuffer(this.response);
+          console.log(arrayBuffer);
+
+          // if you want to access the bytes:
+          // var byteArray = new Uint8Array(arrayBuffer);
+          // ...
+
+          // If you want to use the image in your DOM:
+          //var blob = new Blob(arrayBuffer, {type: "image/png"});
+          //var url = URL.createObjectURL(blob);
+          //someImageElement.src = url;
+
+          // whatever...
+          material.color = eval(material.color);
+                  console.log(material.color);
+                  XMOD.Customizer.append_shape_stl(arrayBuffer, trans_callback, XMOD.Customizer.io
+              , material); 
+        };
+
+        oReq.send();
+
+        /*
+        console.log("filepath " + filepath);
+        $.ajax({ 
+          type: "GET",
+          dataType: "arraybuffer",
+          url: "/api/public/" + filepath,
+          success: function(data) { 
+            //console.log(data);
+              //var arrayBuffer;
+              //var fileReader = new FileReader();
+              //fileReader.onload = function() {
+                  //arrayBuffer = this.result;
+                  //var stl = new ArrayBuffer(data);
+                  material.color = eval(material.color);
+                  console.log(material.color);
+                  XMOD.Customizer.append_shape_stl(data, trans_callback, XMOD.Customizer.io
+              , material); 
+              //};
+              //fileReader.readAsArrayBuffer(data);
+              
+          },
+          error: function(err) { 
+            console.log("Error!"); 
+            console.log(err); 
+          }
+        });
+        */
+      }
+    }
+  }
+
+  show_busy(true);
+
+  
+  {{#components}}
+  proc_file("{{ shape.type }}","{{{ shape.file }}}", {type: "{{ material.type }}"
+    , color: "{{ material.color }}" }
+    , function(io){ 
+
+    	c_done ++;
+	    console.log("c_done is " + c_done + " c_comps is " + c_comps);
+	    if (c_done == c_comps) {
+	      	// callback that model is loaded
+	      	c_done=0;
+			model_loaded();
+      	}
+
+      {{{js_transformation}}} }
+    , function(io){ 
+
+      {{{js_parameters}}};  
+
+      }
+      );
+
+  {{/components}}
+
+  var editor = ace.edit("source_code_editor");
+editor.setTheme("ace/theme/tomorrow");
+editor.getSession().setMode("ace/mode/yaml");
+editor.renderer.setShowGutter(false);
+
+}
+);
+
+function update(id, value){
+    XMOD.Customizer.io[XMOD.Customizer.io_ids[id]] = value;
+    XMOD.Customizer.update_components(XMOD.Customizer.io);
+    show_busy(true);
+}
+
+function download_model() {
+    // create zip file
+    var zip = new JSZip();
+    show_busy(true);
+
+    var main_folder = zip.folder("{{name}}");
+    var mod_folder = main_folder.folder("models");
+    var _meshes = XMOD.Customizer.MeshBlobs(function(meshes) {
+	    for (var m of meshes) {
+	      mod_folder.file(m.filename, m.data, {base64: true});
+	    }
+
+	    create_doc( function(){
+	      var stream = this;
+	      main_folder.file("{{name}}_manual.pdf", stream.toBlob('application/pdf'));
+    	  show_busy(false);
+	      zip.generateAsync({type:"blob"})
+	      .then(function(content) {
+	          if(window.URL) {
+	            var url = window.URL.createObjectURL(content);
+	            var link = document.getElementById("download");
+	            link.href = url;
+	            link.setAttribute("download", "{{name}}.zip");
+	            link.click();
+	          }
+	      });
+	    });
+    });
+}
+
+function download_manual() {
+  create_doc( function() {
+    var stream = this;
+    var link = document.getElementById("download_manual");
+    link.href = stream.toBlobURL('application/pdf');
+    link.target = "_blank";
+    link.setAttribute("download_manual", '{{name}}.pdf');
+    link.click();
+  });
+}
+
+function create_doc(callback = function(){} ) {
+  var doc_title = "Project: {{name}}";
+
+  // create a document and pipe to a blob
+  var doc = new PDFDocument();
+  var stream = doc.pipe(blobStream());
+
+  // draw some text
+  doc.fontSize(40)
+     .text(doc_title, 100, 80)
+     .moveDown()
+     .text("- Assembly");
+     doc.moveDown();
+
+     //doc.polygon([200,300],[150,400],[250,400]);
+     //doc.stroke();
+
+    var url = XMOD.Customizer.image(); //document.getElementById("customizer").toDataURL();
+     doc.image(url, 150, doc.y, {height: 300})
+
+  // tools
+  doc.addPage();
+
+  doc.fontSize(13)
+      .text(doc_title + " - Page i", 50, 50, {align:"right"})
+  doc.fontSize(25)
+     .text("Tools", 100, offset)
+     .moveDown()
+
+  var i=0;
+  var zerox = doc.x;
+  var offx = 0;
+  var offy = doc.y;
+  var tile_w = 80;
+  var tile_h = 80;
+  {{#tools}}
+    if (i%2 === 0) {
+      offx = 0+zerox;
+    } else {
+      offx = 250+zerox;
+    }
+    doc.rect(offx, offy, tile_w, tile_h);
+    doc.stroke();
+    doc.fontSize(13)
+      .text("{{name}}", offx+20+tile_w, offy);
+    if (i%2 !== 0) {
+      offy += tile_h +20;
+    }
+
+    i++;
+  {{/tools}}
+
+  // components
+  doc.addPage();
+
+  doc.fontSize(13)
+      .text(doc_title + " - Page ii", 50, 50, {align:"right"})
+  doc.fontSize(25)
+     .text("Components", 100, offset)
+     .moveDown()
+
+  var i=0;
+  var zerox = doc.x;
+  var offx = 0;
+  var offy = doc.y;
+  var tile_w = 80;
+  var tile_h = 80;
+  {{#components}}
+    if (i%2 === 0) {
+      offx = 0+zerox;
+    } else {
+      offx = 250+zerox;
+    }
+    doc.rect(offx, offy, tile_w, tile_h);
+    doc.stroke();
+    doc.fontSize(13)
+      .text("{{name}}", offx+20+tile_w, offy);
+    if (i%2 !== 0) {
+      offy += tile_h +20;
+    }
+
+    i++;
+  {{/components}}
+
+  var i = 0;
+  var page = 1;
+  var offset = 80;
+  {{#instructions}}
+
+    if (i%2 === 0) {
+      doc.addPage(); 
+      doc.fontSize(13)
+      .text(doc_title + " - Page " + page, 50, 50, {align:"right"});    
+      page ++;   
+      offset = 80;
+    } else {
+      offset = 400;
+    }
+
+    doc.fontSize(25)
+     .text("{{title}}", 100, offset)
+     .moveDown()
+
+    doc
+     .fontSize( 13)
+     .text("{{out}}", {
+       width: 206,
+       align: 'justify',
+       indent: 30,
+       columns: 1,
+       height: 300,
+       ellipsis: true,
+     })
+     .moveDown()
+     ;
+     doc.moveDown();
+     doc.rect(350, offset+50, 206, 220);
+     doc.stroke();
+    i++;
+
+  {{/instructions}}
+     
+  // end and display the document in the iframe to the right
+  doc.end();
+  stream.on('finish', callback);
+}</script><!-- Google Analytics --><script>// todo: adapt script
+
+/*
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+*/
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-79386335-2', 'auto');
+ga('send', 'pageview');</script></head><body><!-- div(id="busy_indicator")--><div class="modal-backdrop" id="busy_indicator" style="opacity:0.6;"><div class="loader" id="busy_indicator" style="position:fixed; left:50%; top:40%; z-index:1000;"> </div></div><nav class="navbar navbar-default">
+<div class="container-fluid">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/">coshape</a>
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<form id="search_form" class="navbar-form navbar-left" >
+<div class="form-group">
+<div style="margin: 0px auto !important;">
+<div class="input-group">
+<input id="url_input" type="text" class="form-control" placeholder="Search for..." style="min-width: 350px; width:100%; float:right;">
+</div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+</div>
+<button id="btn_search" type="submit" class="btn btn-default">Go!</button>
+</form>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="/api/admin/login/" target="_blank"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a>
+</li>
+</ul>
+</div><!-- /.navbar-collapse -->
+<div id="load_bar">
+<div></div>
+</div>
+</div><!-- /.container-fluid -->
+</nav><div class="container"> <div class="page-header"><h1 style="text-align: left;">{{name}} <span class="label label-default">New</span></h1><p>{{description}}</p></div><div class="row"><div class="col-md-8"><div id="customizer" style="height:400px;"></div><!-- div.loader(style="position:fixed; left:50%; top:50%; z-index:1000;") p processing ...--></div><div class="col-md-4"><div><label class="checkbox-inline"><input type="checkbox" value="" checked>use 3D Printer</label><label class="checkbox-inline"><input type="checkbox" value="" checked>use Laser Cutter / CNC Router</label></div><br><div class="btn-toolbar"><!--+button_large("View PDF","download_manual();")--><button class="btn btn-primary btn-lg" onclick="download_model();"> Download</button><button class="btn btn-default btn-lg" onclick="" data-toggle="modal" data-target="#embed_modal"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>   Embed</button></div><!-- Modal -->
+<div id=embed_modal class="modal fade" role="dialog">
+<div class="modal-dialog">
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Embed this Project</h4>
+</div>
+<div class="modal-body"><div id="modal_preview"></div><hr><p>Copy and paste this code into your web page.</p><code id="modal_code"></code><script>$('#embed_modal').on('show.bs.modal', function () {
+	var path = window.location.href; //window.location.pathname;
+	var parameters = "";
+	var url = path + "frame.html" + (parameters.length>0 ? "?" + parameters : "");
+	var code = '<iframe src="' + url + '" allowtransparency="true" style="border-style:none;width:100%; min-height:400px;"></iframe>';
+	$("#modal_code").text(code);
+	$("#modal_preview").html(code);
+
+})</script></div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div><hr><div class="panel panel-default"><div class="panel-heading">
+<h3 class="panel-title">Customize</h3>
+</div><div class="panel-body"> {{{html}}}<hr><div id="tree"></div><!-- +panel("Components")div(id="tree")
+| {{#components}}
++table_row("{{name}}","1")
+| {{/components}}
+--></div>
+</div><hr><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><small>The 3D models are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</small></a></div></div><a id="download"></a><a id="download_manual"></a><hr><div class="row"><div class="col-md-6"><h2>Instructions</h2>{{#instructions}}  <div class="panel panel-default"><div class="panel-heading">
+<h3 class="panel-title">{{title}}</h3>
+</div><div class="panel-body">{{text}}</div>
+</div>{{/instructions}} </div><div class="col-md-6"><h2>Components</h2><div class="panel panel-default"><div class="panel-body"><table class="table"><thead><tr><th>Component</th><th>Quantity</th></tr></thead><tbody>{{#components}}<tr><td>{{name}}</td><td>1</td></tr>{{/components}}</tbody></table></div>
+</div></div></div><hr><footer><p>&copy; Coshape 2017</p></footer></div><script>function getTree() {
+	return [
+	  {
+	    text: "{{name}}",
+	    nodes: [
+	      {
+	        text: "Parameters",
+	        nodes: [
+	         {{#interface_list}}
+				  {
+				  	text: "{{name}} = {{value}}",
+				    nodes: [
+				        {
+				        	text: "value"
+				        }
+				    ],
+				    state: {
+					    //checked: true,
+					    disabled: false,
+					    expanded: false,
+					    selected: false
+					  },
+				  },
+				  {{/interface_list}}
+	        ],
+	        state: {
+					    expanded: false,
+			}
+	      },
+	      {
+	        text: "Components",
+	        nodes: [
+	        	{{#components}}
+				  {
+				  	text: "{{name}}",
+				    nodes: [
+				    	{{#parameters_list}}
+				        {
+				        	text: "{{label}} = {{value}}"
+				        },
+				        {{/parameters_list}}
+				    ],
+				    state: {
+					    //checked: true,
+					    disabled: false,
+					    expanded: false,
+					    selected: false
+					  },
+				  },
+				  {{/components}}
+	        ]
+	      }
+	    ]
+	  },
+	];
+}
+
+$(function() {
+	$("#search_form").submit(function() {
+		window.location = '/?q=' + $("#url_input").val();
+		// start_long_task({"url":$('#url_input').val(), "op":0 });
+		return false;
+	});
+	// init the components tree view ...
+	$('#tree').treeview({data: getTree(), showBorder:false, showTags:true, showCheckbox:false, multiSelect:false});
+});
+
+function show_busy(show) {
+	if (show) {
+		$("#busy_indicator").show();
+	} else {
+		$("#busy_indicator").hide();
+	}
+}
+
+show_busy(false);
+</script><script type="text/javascript" src="/styles/fuse.min.js"></script>
+<script src="/styles/nanobar.min.js"></script><script>var isDebug = false;
+
+// fuse search test
+// http://fusejs.io/
+var fuse_db =  [
+     {
+        title: "Old Man's War",
+        author: {
+          firstName: "John",
+          lastName: "Scalzi"
+        }
+     },
+     {
+        title: "The Lock Artist",
+        author: {
+          firstName: "Steve",
+          lastName: "Hamilton"
+        }
+     },
+     {
+        title: "HTML5",
+        author: {
+          firstName: "Remy",
+          lastName: "Sharp"
+        }
+     },
+     {
+        title: "Right Ho Jeeves",
+        author: {
+          firstName: "P.D",
+          lastName: "Woodhouse"
+        }
+     },
+     {
+        title: "The Code of the Wooster",
+        author: {
+          firstName: "P.D",
+          lastName: "Woodhouse"
+        }
+     },
+     {
+        title: "Thank You Jeeves",
+        author: {
+          firstName: "P.D",
+          lastName: "Woodhouse"
+        }
+     },
+     {
+        title: "The DaVinci Code",
+        author: {
+          firstName: "Dan",
+          lastName: "Brown"
+        }
+     },
+     {
+        title: "Angels & Demons",
+        author: {
+          firstName: "Dan",
+          lastName: "Brown"
+        }
+     },
+     {
+        title: "The Silmarillion",
+        author: {
+          firstName: "J.R.R",
+          lastName: "Tolkien"
+        }
+     },
+     {
+        title: "Syrup",
+        author: {
+          firstName: "Max",
+          lastName: "Barry"
+        }
+     },
+     {
+        title: "The Lost Symbol",
+        author: {
+          firstName: "Dan",
+          lastName: "Brown"
+        }
+     },
+     {
+        title: "The Book of Lies",
+        author: {
+          firstName: "Brad",
+          lastName: "Meltzer"
+        }
+     },
+     {
+        title: "Lamb",
+        author: {
+          firstName: "Christopher",
+          lastName: "Moore"
+        }
+     },
+     {
+        title: "Fool",
+        author: {
+          firstName: "Christopher",
+          lastName: "Moore"
+        }
+     },
+     {
+        title: "Incompetence",
+        author: {
+          firstName: "Rob",
+          lastName: "Grant"
+        }
+     },
+     {
+        title: "Fat",
+        author: {
+          firstName: "Rob",
+          lastName: "Grant"
+        }
+     },
+     {
+        title: "Colony",
+        author: {
+          firstName: "Rob",
+          lastName: "Grant"
+        }
+     },
+     {
+        title: "Backwards, Red Dwarf",
+        author: {
+          firstName: "Rob",
+          lastName: "Grant"
+        }
+     },
+     {
+        title: "The Grand Design",
+        author: {
+          firstName: "Stephen",
+          lastName: "Hawking"
+        }
+     },
+     {
+        title: "The Book of Samson",
+        author: {
+          firstName: "David",
+          lastName: "Maine"
+        }
+     },
+     {
+        title: "The Preservationist",
+        author: {
+          firstName: "David",
+          lastName: "Maine"
+        }
+     },
+     {
+        title: "Fallen",
+        author: {
+          firstName: "David",
+          lastName: "Maine"
+        }
+     },
+     {
+        title: "Monster 1959",
+        author: {
+          firstName: "David",
+          lastName: "Maine"
+        }
+     }
+  ]
+
+function start_long_task(_data) {
+	var div = $('<div class="row"><div></div><div></div></div><hr>');
+	div.insertBefore($('#progress').children()[0]);
+
+	// create a progress bar
+	var loadbar = $("#load_bar")[0].childNodes[1]; //$($("#load_bar").children()[0]);
+	var nanobar;
+	//Nanobar = null;
+	//if (Nanobar != null) {
+		nanobar = new Nanobar({
+			bg: '#0AF', //'#44f',
+			target: div[0].childNodes[1] // loadbar // -> use this to put the bar in navbar
+		});
+	//}
+
+	// send ajax POST request to start background job
+	if (!isDebug) {
+		$.ajax({
+		type: 'POST',
+		url: '/api/longtask',
+			data: _data, //{"url":$('#url_input').val() },
+			success: function(data, status, request) {
+				status_url = request.getResponseHeader('Location');
+				update_progress(status_url, nanobar, div[0]);
+			},
+			error: function() {
+				alert('Unexpected error');
+			}
+		});
+	} else {
+		status_url = "/api/status/1234"
+		update_progress(status_url, nanobar, div[0]);
+	}	
+}
+
+function render_search_response(response, status_div) {
+	var l = response.length;
+	if (l>6) {l=6;}
+	var root = $(status_div.childNodes[0]); 
+	var node_row ="";
+
+	for (var i=0; i<l; i++) {
+		var item = response[i];
+		var node_title = item.name;
+		var node_url = item.public_url;
+		var node_img = item.thumbnail;
+
+		var node_src = '<div class="col-md-2" style="max-width:300px;"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">' + node_title + '</h3></div><div class="panel-body"><a href="' + node_url + '" target="_blank"><img src="' + node_img + '" style="width:100%;"/></a></div></div></div>';
+
+		node_row += node_src;
+	}
+	root.append($(node_row));
+}
+
+
+function update_progress(status_url, nanobar, status_div) {
+	if (!isDebug) {
+		$.getJSON(status_url, function(data) {
+			// update UI
+			percent = parseInt(data['current'] * 100 / data['total']);
+			if (nanobar) {
+				nanobar.go(percent);
+			}
+
+			//$(status_div.childNodes[1]).text(percent + '%');
+			//$(status_div.childNodes[2]).text(data['status']);
+
+			if (data['state'] != 'PENDING' && data['state'] != 'PROGRESS') {
+				if ('result' in data) {
+					render_search_response($.parseJSON(data["result"]), status_div);
+				} else {
+					console.log("error");
+					// something unexpected happened
+					$(status_div.childNodes[3]).text('Result: ' + data['state']);
+				}
+			} else {
+				// rerun in 2 seconds
+				setTimeout(function() {
+					update_progress(status_url, nanobar, status_div);
+				}, 2000);
+			}
+		});
+	} else {
+		var res = {
+	    'state': 'Ok',
+	    'current': 3,
+	    'total': 3,
+	    'status': 'Finished',
+	    'result': '[{"title":"x-component", "public_url":"www.123.com", "thumbnail":"/api/styles/file.png", "preview":"/styles/cube.png"},{"title":"x-component", "public_url":"www.123.com", "thumbnail":"/api/styles/file.png", "preview":"/styles/cube.png"},{"title":"x-component", "public_url":"www.123.com", "thumbnail":"/api/styles/file.png", "preview":"/styles/cube.png"},{"title":"x-component", "public_url":"www.123.com", "thumbnail":"/api/styles/file.png", "preview":"/styles/cube.png"},{"title":"x-component", "public_url":"www.123.com", "thumbnail":"/api/styles/file.png", "preview":"/styles/cube.png"},{"title":"x-component", "public_url":"www.123.com", "thumbnail":"/api/styles/file.png", "preview":"/styles/cube.png"}]'
+		};
+		percent = parseInt(res['current'] * 100 / res['total']);
+		if (nanobar) {
+			nanobar.go(percent);
+		}
+		render_search_response($.parseJSON(res["result"]), status_div);
+	}
+}
+
+$(function() {
+	$("#search_form").submit(function() {
+		var in_data = $('#url_input').val();
+
+		/*
+		start_long_task({"url":$('#url_input').val(), "op":0 });
+		return false;
+		*/
+
+
+		var options = {
+		  shouldSort: true,
+		  threshold: 0.6,
+		  location: 0,
+		  distance: 100,
+		  maxPatternLength: 32,
+		  minMatchCharLength: 1,
+		  keys: [
+		    "title",
+		    "author.firstName"
+		]
+		};
+		var fuse = new Fuse(fuse_db, options); // "list" is the item array
+		var result = fuse.search(in_data);
+		console.log("fuse search:");
+		console.log(result);
+		return false;
+	});
+});
+
+function gotPic(event) {
+if(event.target.files.length == 1 && 
+	event.target.files[0].type.indexOf("image/") == 0) {
+	var reader = new FileReader();
+		// Closure to capture the file information.
+		reader.onload = (function(theFile) {
+		 return function(e) {
+						var b64Img = e.target.result; //.split(",")[1];
+						console.log(b64Img);
+						start_long_task({"url":b64Img,"op":2});
+
+					};
+				})(event.target.files[0]);
+				reader.readAsDataURL(event.target.files[0]);
+			}
+		}
+
+		//el = document.getElementById("cameraInput");
+		//el.addEventListener("change", gotPic, false);
+
+
+		function setup() {
+			
+
+		/*
+			if (use_clarifai) {
+				Clarifai.initialize({
+			'clientId': 'VkAghrwu9qmC_GdIQ8fvvJ4FN6pKk6j325jzDLon',
+			'clientSecret': 'kKtZbWG3FJdOQFvvvDgC6aZICk_SUhUeu7puTybp'
+			}
+			);
+		}
+		*/
+/*
+// start camera
+navigator.myGetMedia = (navigator.getUserMedia ||
+	navigator.webkitGetUserMedia ||
+	navigator.mozGetUserMedia ||
+	navigator.msGetUserMedia);
+
+navigator.myGetMedia({ video: true }, connect, error);
+*/
+}
+
+/*
+function connect(stream) {
+video = document.getElementById("video");
+window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+	// video.src = window.URL ? window.URL.createObjectURL(stream) : stream;
+	video.src = window.URL ? window.URL.createObjectURL(stream) : stream;
+	
+	video.play();
+}
+*/
+
+/*
+$('#btn_search').click(start_long_task);
+
+$("#url_input").on('keyup', function (e) {
+	if (e.keyCode == 13) {
+		// Do something
+		console.log("key up");
+		start_long_task({"url":$('#url_input').val(), "op":0 });
+	}
+});
+*/
+
+function error(e) { console.log(e); }
+
+addEventListener("load", setup);</script></script>
+<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-1.2.1.js"></script><!-- Google Analytics --><script>// todo: adapt script
+
+/*
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+*/
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-79386335-2', 'auto');
+ga('send', 'pageview');</script></body></html>

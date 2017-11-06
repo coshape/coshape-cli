@@ -1,0 +1,32 @@
+body {
+  overflow: hidden; /* use this for fullscreen views  */
+  background: none transparent;
+}
+
+#menuToggle {
+  position: absolute;
+  //display: inline-block;
+  left:0px;
+  top:0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: black;
+   z-index: 1000;
+}
+
+#mainLogon {
+  
+  position: absolute;
+  right:0px;
+  top:0px;
+  
+}
+
+#menuItems {
+	position: relative;
+}
+
+#sidebar-wrapper {
+  padding-top: 50px;
+  background: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

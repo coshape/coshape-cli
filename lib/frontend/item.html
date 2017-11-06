@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"></html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content=""><meta name="author" content="freakwave2@gmx.de"></head><body></body><div id="wrapper"><div id="sidebar-wrapper"><a href="#" id="download">download</a><div id="edit"><div id="mydatgui"></div></div></div><div id="menuToggle"><div id="menuItems"><button href="#menu-toggle" id="menu-toggle" data-toggle="tooltip" data-placement="bottom" title="Toggle Menu" class="btn btn-default"><span class="glyphicon glyphicon-menu-hamburger"></span></button><!--button.btn.btn-default(id='downloadCorner', type='button', onclick="XMOD.mainview.onExport()" , data-toggle="tooltip", data-placement="left", title="Download STL") downloadspan.glyphicon.glyphicon-download
+--></div></div><div id="viewerContext"></div></div><div id="glmodeling"><div id="busy" class="spinner"></div></div><!--button.btn.btn-primary.btn-circle(id='downloadCorner', type='button', onclick="XMOD.mainview.onExport()" , data-toggle="tooltip", data-placement="left", title="Download STL")span.glyphicon.glyphicon-download
+--><!--button.btn.btn-xs.btn-default(id='downloadCorner', type='button', onclick="XMOD.mainview.onExport()" , data-toggle="tooltip", data-placement="left", title="Download STL") Download//span.glyphicon.glyphicon-download
+--><script>var openNewWindow = function() {
+   var iPath = window.location.href.split("?i=")[1];
+   var url = "/creator?i=" + iPath;
+   window.open(url, '_blank');
+};
+
+var onFullscreen = function() {
+
+};
+
+var onShare = function() {
+  var iPath = window.location.href.split("?i=")[1];
+    var url = "/item?i=" + iPath;
+
+}
+</script><!--div(id="feedbackCorner")// button.btn.btn-xs.btn-default( type='button', onclick="XMOD.mainview.onExport()" , data-toggle="tooltip", data-placement="left", title="Download STL") Download
+// //a.btn.btn-xs.btn-default( type='button', href="/demo", target="_blank", data-toggle="tooltip", data-placement="left", title="Load into Creator") Make
+// button.btn.btn-xs.btn-default( type='button', onclick="openNewWindow();", data-toggle="tooltip", data-placement="left", title="Load into Creator") Modify
+// button.btn.btn-xs.btn-default( type='button', onclick="XMOD.mainview.onExport()" , data-toggle="tooltip", data-placement="left", title="Order 3D print") Order
+// //span.glyphicon.glyphicon-download
+--><div id="modal-share" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!--div.modal-headerbutton.close(type="button") &times;
+h4.modal-title Modeal header--><div class="modal-body"><p>Use this link to share this part with others:</p><a id="shareLink" style="font-family:monospace" target="_blank">...</a><p>Use this code snippet to embed this part:</p><p id="embedCode" style="font-family:monospace">...</p></div><!--div.modal-footerbutton.btn.btn-default(type="button", data-dismiss="modal") Close
+
+--></div></div></div><div id="shareCorner"><button type="button" onclick="XMOD.mainview.onExport()" data-toggle="tooltip" data-placement="left" title="Download STL" class="btn btn-sm btn-transparent"><!--span.glyphicon.glyphicon-cloud-download--><span class="glyphicon glyphicon-download"></span></button><button type="button" data-toggle="modal" data-target="#modal-share" data-placement="left" title="Share this Part" class="btn btn-sm btn-transparent"><span class="glyphicon glyphicon-share"></span></button><button type="button" onclick="openNewWindow();" data-toggle="tooltip" data-placement="left" title="Open in Creator" class="btn btn-sm btn-transparent"><span class="glyphicon glyphicon-edit"></span></button><!--button.btn.btn-sm.btn-transparent( type='button', onclick="onFullscren();" , data-toggle="modal", data-target="#fullscreen", data-placement="left", title="Toggle Fullscreen")span.glyphicon.glyphicon-resize-full
+--><!-- button.btn.btn-xs.btn-default( type='button', onclick="XMOD.mainview.onExport()" , data-toggle="tooltip", data-placement="left", title="Download STL") Download--><!-- button.btn.btn-xs.btn-default( type='button', onclick="openNewWindow();", data-toggle="tooltip", data-placement="left", title="Load into Creator") Modify--><!-- button.btn.btn-xs.btn-default( type='button', onclick="XMOD.mainview.onExport()" , data-toggle="tooltip", data-placement="left", title="Order 3D print") Order-->
+
+</div>
+<link rel="stylesheet" href="/styles/bootstrap.min.css">
+<link rel="stylesheet" href="/styles/superhero.min.css">
+<link rel="stylesheet" href="/styles/sidebar.css">
+<link rel="stylesheet" href="/styles/style.css">
+<link rel="stylesheet" href="/styles/item.css">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<!-- gui-->
+<script type="text/javascript" src="/js/dat.gui.min.js"></script>
+<!-- scad-->
+<script type="text/javascript" src="openjscad.js"></script>
+<script type="text/javascript" src="csg.js"></script>
+<!-- three js-->
+<script type="text/javascript" src="/js/three.min.js"></script>
+<script type="text/javascript" src="/js/STLLoader.js"></script>
+<script type="text/javascript" src="/js/TrackballControls.js"></script>
+<script type="text/javascript" src="/js/OrbitControls.js"></script>
+<script type="text/javascript" src="/js/TransformControlls.js"></script>
+<!-- modeling-->
+<script type="text/javascript" src="/js/modeling/importer.js">
+</script><script type="text/javascript" src="/js/modeling/exporter.js">
+</script><script type="text/javascript" src="/js/modeling/view.js"></script>
+<script type="text/javascript" src="/js/modeling/modeler.js"></script>
+<script>XMOD.modeler = new XMOD.CModeler();
+XMOD.modeler.init();
+
+XMOD.mainview.init("glmodeling", false, false);
+XMOD.mainview.attachModeler(XMOD.modeler);
+XMOD.modeler.sigChanged();
+
+$("#menu-toggle").click(function(e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
+
+var jseditor;
+$('#jseditor').hide();
+$('#transform').hide();
+$('#edit').hide();
+$('#toolbox').show();
+$("#download").hide();
+$('#mod-pop').hide();
+$('#busy').show();
+
+
+var _includePath = './';
+var me='web-online';
+var gMemFs = [];
+
+$(document).ready(function() {
+
+  $('#modal-share').on('shown.bs.modal', function() {
+      var url = window.location.href; //"/item?i=" + iPath;
+        var iRoot = url.split("/item")[0];
+        var iPath = url.split("/item")[1];
+        var shareUrl = iRoot + "/creator" + iPath;
+      
+      $('#shareLink').text(shareUrl);
+      $('#shareLink').attr("href", shareUrl);
+      $('#embedCode').text('<iframe src="' + url + '"  allowtransparency="true"></iframe>');
+    })
+
+
+  $('label.tree-toggler').click(function () {
+    $(this).parent().children('ul.tree').toggle(300);
+  });
+
+  $('#edit').hide();
+
+    XMOD.modeler.sigChanged();
+
+    $("#menu").height($(window).height());       // initial height
+    $(window).resize(function() {                // adjust the relevant divs
+        $("#menu").height($(window).height());
+        $("#menuHandle").css({top: '45%'});
+      });
+
+   // read url arguments and exectue customer script
+   var iPath = window.location.href.split("?i=")[1];
+   console.log("ipath " + iPath);
+   $.ajax({ 
+        type: "GET",
+        dataType: "text",
+      url: "api/public/" + iPath,
+        success: function(data){    
+          // console.log(data);
+          if (data) {
+            // execute script
+            XMOD.modeler.createBody(data, function(item){
+          $('#busy').hide();
+              XMOD.mainview.autoZoomScene();
+              XMOD.modeler.SELECTED = item;
+          XMOD.modeler.sigItemSelected();
+              // XMOD.mainview.onShowProperies(item, {});
+              XMOD.modeler.sigChanged();
+
+            });
+          }
+        },
+        error: function(err) {console.log("shit!");console.log(err);}
+    });
+} );</script></html>
