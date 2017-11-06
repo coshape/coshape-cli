@@ -1,4 +1,104 @@
 ---
-main:
-	author: {{author}}
-	name: {{name}}
+name: {{name}}
+description: My awesome {{name}} customizer!
+author: {{author}}
+date_created: 2017-08-25 18:34:45.222774
+
+interface:
+  length:
+    min: 10
+    max: 200
+    step: 5
+    unit: inch
+    value: 50
+  width:
+    min: 10
+    max: 200
+    step: 5
+    unit: mm
+    value: 40
+  height:
+    min: 10
+    max: 200
+    step: 5
+    unit: mm
+    value: 15
+  radius:
+    min: 1
+    max: 20
+    step: 1
+    unit: mm
+    value: 3
+  thickness:
+    min: 0.1
+    max: 10
+    step: 0.1
+    unit: mm
+    value: 1.5
+
+tools:
+  - 3d_printer:
+  - laser_cutter:
+
+components:
+  - base:
+    material: 
+      type: pla
+      color: rgb(1,1,1)
+    shape:
+      type: jscad
+      file: base.jscad
+    position:
+      x: 0
+      y: 0
+      z: 0
+    rotation:
+      x: 0
+      y: 0
+      z: 90
+    parameters:
+      height: io.height
+      width: io.width
+      length: io.length
+      radius: io.radius
+      thickness: io.thickness
+  - top:
+    material: 
+      type: pla
+      color: rgb(0,0,0.5)
+    shape:
+      type: jscad
+      file: top.jscad
+    position:
+      x: 0
+      y: 0
+      z: io.height - io.thickness
+    rotation:
+      x: 0
+      y: 0
+      z: 90
+    scale:
+      z: io.thickness
+    parameters:
+      width: io.width - io.thickness
+      length: io.length - io.thickness
+      radius: io.radius  - io.thickness / 2
+
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: > 
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for 
+    precision assembly.
+- 1:
+  title: Step 1
+  text: >
+    Produce the [base] with the [3d_printer]
+- 2:
+  title: Step 2
+  text: >
+    Produce the [top] with the [lase_cutter]
