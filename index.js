@@ -1,7 +1,8 @@
 'use strict'
 var generator = require("./lib/generator")
 	, server = require("./lib/server")
-	, utils = require("./lib/utils");
+	, utils = require("./lib/utils")
+	, router = require("./lib/router")
 
 // create a new project
 // projectpath can be relative or absolute
@@ -40,11 +41,17 @@ exports.build = function(projectpath = ".") {
 // host a project
 // projectpath can be relative or absolute
 exports.host = function(projectpath = ".") {
+	var cache = {}
 	try {
-		server.host(utils.pathNormalize(projectpath));
+		// build project into cache
+		var project_router = router.createRouter();
+		generator.buildCachedWorkspace(utils.pathNormalize(projectpath), (url, data) => {
+			project_router.addDataPair(url, data);
+		});
+		server.host(utils.pathNormalize(projectpath), project_router);
 	} catch (ex) {
-		utils.error(ex, "host");
-		utils.info("host -h for details");
+		utils.error(ex, "run");
+		utils.info("-h for details");
 	}
 }
 
