@@ -1,5 +1,5 @@
 // title: model rocket
-// (c) 2017 coshape.is
+// (c) 2017 coshape.is, Andreas Fuchs
 // Here we define the user editable parameters: 
 
   function getParameterDefinitions() {

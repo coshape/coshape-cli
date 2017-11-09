@@ -1,5 +1,5 @@
 // title: Gear
-// author: Joost Nieuwenhuijse
+// author: Joost Nieuwenhuijse, Andreas Fuchs
 // license: MIT License
 
 // Here we define the user editable parameters: 

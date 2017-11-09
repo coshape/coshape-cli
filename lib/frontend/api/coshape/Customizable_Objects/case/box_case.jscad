@@ -1,5 +1,5 @@
 // title: Case
-// author: Andreas Fuchs, andreas@solify.de
+// (c) 2017 coshape.is, Andreas Fuchs
 // license: MIT License
 
 // Here we define the user editable parameters: 

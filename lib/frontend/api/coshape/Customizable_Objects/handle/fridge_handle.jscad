@@ -1,5 +1,5 @@
 // title: Fridge Handle
-// (c) 2014 Andreas Fuchs, andreas@solify.de
+// (c) 2017 coshape.is, Andreas Fuchs
 // Here we define the user editable parameters: 
 
 function getParameterDefinitions() {

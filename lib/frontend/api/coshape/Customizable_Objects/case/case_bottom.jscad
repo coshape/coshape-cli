@@ -1,5 +1,5 @@
 // title: Electronics Case
-// (c) 2014 Solify, andreas@solify.de
+// (c) 2017 coshape.is, Andreas Fuchs
 
 function getParameterDefinitions() {
   return [

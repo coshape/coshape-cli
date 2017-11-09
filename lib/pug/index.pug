@@ -1,0 +1,223 @@
+//- default index page template for maker projects
+//- bootstrap is used by default. implement mixins for other frameworks to override this
+block mixin_theme
+	include bootstrap_mixins.pug
+
+//- index.pug
+doctype html
+html(lang="en")
+	head
+		title {{name}} - Coshape Project
+		meta(name="description", content="Coshape Maker Projects is a creativity platform that combines customizable 3D models, instructional resources, and remixing tools for crafting zero-to-maker experiences.")
+		block styles
+			link(rel="stylesheet", href="/styles/bootstrap.min.css")
+
+		//- link(rel="stylesheet", href="/styles/lab.bs.css")
+		//- link(rel="stylesheet",href="/styles/assets/video.css")
+		include customizer.pug 
+
+		//- link(rel="stylesheet", href="/styles/paper.bs.css")
+
+
+	body
+		// div(id="busy_indicator")
+		div.modal-backdrop(id="busy_indicator", style="opacity:0.6;")
+			div.loader(id="busy_indicator", style="position:fixed; left:50%; top:40%; z-index:1000;") 
+
+		block navbar
+			//- bootstrap default navbar
+			//- include navbar.pug
+
+		div(class="container") 
+
+			block header
+				+page_header("{{name}}", "", "{{description}}")
+
+				
+
+			block customizer
+				+row
+					+col("8")
+						div(id="customizer",style="height:400px;")
+						// div.loader(style="position:fixed; left:50%; top:50%; z-index:1000;") 
+							p processing ...
+					+col("4")
+						div
+							label.checkbox-inline
+								input(type="checkbox", value="", checked)
+								| use 3D Printer
+							label.checkbox-inline
+								input(type="checkbox", value="", checked)
+								| use Laser Cutter / CNC Router
+						br
+
+						+button_bar
+							+button_large_primary("Download","download_model();")
+							//- +button_large("Embed","", "glyphicon glyphicon-link", "embed_modal")
+
+
+						//- +modal_panel("embed_modal", "Embed this Project")
+							div(id="modal_preview")
+							hr
+							p Copy and paste this code into your web page.
+							code(id="modal_code")
+							script.
+								$('#embed_modal').on('show.bs.modal', function () {
+									var path = window.location.href; //window.location.pathname;
+									var parameters = "";
+									var url = path + "frame.html" + (parameters.length>0 ? "?" + parameters : "");
+									var code = '<iframe src="' + url + '" allowtransparency="true" style="border-style:none;width:100%; min-height:400px;"></iframe>';
+									$("#modal_code").text(code);
+									$("#modal_preview").html(code);
+
+								})
+							//- pre
+								code
+									<![CDATA[<iframe src="/item?i=Customizable_Objects/case/case_bottom.jscad" allowtransparency="true" class="modelingFrame"></iframe>>
+							//- pre(style="font-family:monospace;") 
+								#{'<iframe src="/item?i=Customizable_Objects/case/case_bottom.jscad" allowtransparency="true" class="modelingFrame"></iframe>'}
+
+						hr
+						+panel("Customize") 
+							| {{{html}}}
+
+							//- hr
+							//- div(id="tree")
+							
+							//- +panel("Components")
+								div(id="tree")
+								| {{#components}}
+								+table_row("{{name}}","1")
+								| {{/components}}
+
+						hr
+						
+						<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><small>The 3D models are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</small></a>
+
+			a(id="download")
+			a(id="download_manual")
+
+			hr
+			+row
+				+col(6)
+					block instructions
+						h2 Instructions
+						| {{#instructions}}  
+						+panel("{{title}}")
+							| {{text}}
+						| {{/instructions}} 
+
+				+col(6)
+					block components
+						h2 Components
+						+panel
+							+table("Component", "Quantity")
+								| {{#components}}
+								+table_row("{{name}}","1")
+								| {{/components}}
+
+			//- hr
+			//- +row
+				+col(8)
+					block makes
+						h2 Makes
+							+video_canvas("https://www.youtube.com/embed/bM44wMHAjU4?rel=0&amp;;controls=0&amp;showinfo=0","1280","720")
+
+				+col(4)
+					block details
+						h2 Details
+						+table
+							+table_row_hd("Name","{{name}}")
+							+table_row_hd("Date","{{date_created}}")
+							+table_row_hd("Author","{{author}}")
+							+table_row_hd("License Text","{{license}}")
+							+table_row_hd("License Media","{{license}}")
+							+table_row_hd("License Code","{{license}}")
+			
+
+			block footer
+				hr
+				footer
+					<p>Powered by <a href="https://coshape.io">coshape</a></p>
+
+		block scripts
+			script.
+				/*
+				function getTree() {
+					return [
+					  {
+					    text: "{{name}}",
+					    nodes: [
+					      {
+					        text: "Parameters",
+					        nodes: [
+					         {{#interface_list}}
+								  {
+								  	text: "{{name}} = {{value}}",
+								    nodes: [
+								        {
+								        	text: "value"
+								        }
+								    ],
+								    state: {
+									    //checked: true,
+									    disabled: false,
+									    expanded: false,
+									    selected: false
+									  },
+								  },
+								  {{/interface_list}}
+					        ],
+					        state: {
+									    expanded: false,
+							}
+					      },
+					      {
+					        text: "Components",
+					        nodes: [
+					        	{{#components}}
+								  {
+								  	text: "{{name}}",
+								    nodes: [
+								    	{{#parameters_list}}
+								        {
+								        	text: "{{label}} = {{value}}"
+								        },
+								        {{/parameters_list}}
+								    ],
+								    state: {
+									    //checked: true,
+									    disabled: false,
+									    expanded: false,
+									    selected: false
+									  },
+								  },
+								  {{/components}}
+					        ]
+					      }
+					    ]
+					  },
+					];
+				}*/
+
+				/*
+				$(function() {
+					$("#search_form").submit(function() {
+						window.location = '/?q=' + $("#url_input").val();
+						// start_long_task({"url":$('#url_input').val(), "op":0 });
+						return false;
+					});
+					// init the components tree view ...
+					$('#tree').treeview({data: getTree(), showBorder:false, showTags:true, showCheckbox:false, multiSelect:false});
+				});
+				*/
+
+				function show_busy(show) {
+					if (show) {
+						$("#busy_indicator").show();
+					} else {
+						$("#busy_indicator").hide();
+					}
+				}
+
+				show_busy(false);
