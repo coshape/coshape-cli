@@ -19,7 +19,7 @@
     "build",
     "cli"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "coshape": "./bin/coshape.js"
   },
