@@ -27,7 +27,7 @@
   "name": "coshape",
   "scripts": {
     "test": "mocha",
-    "templates": "pug lib/pug/index.pug --out lib/templates"
+    "templates": "pug lib/pug/index.pug lib/pug/home.pug --out lib/templates"
   },
   "version": "0.1.0",
   "dependencies": {

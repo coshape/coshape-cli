@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="en"><head><title>Coshape Workspace</title><meta name="description" content="Coshape Maker Projects is a creativity platform that combines customizable 3D models, instructional resources, and remixing tools for crafting zero-to-maker experiences."><link rel="stylesheet" href="/styles/bootstrap.min.css"></head><body><div class="container"> <div class="page-header"><h1 style="text-align: left;">Workspace <span class="label label-default"></span></h1><p>Overview of customizer projects</p></div><a id="download"></a><a id="download_manual"></a><div class="row"><div class="col-md-12"><h2>Projects</h2>{{#projects}}  <a href="/{{name}}">{{name}}</a><br>{{/projects}} </div></div><hr><footer><p>Powered by <a href="https://coshape.io">coshape</a></p></footer></div><script>function show_busy(show) {
+	if (show) {
+		$("#busy_indicator").show();
+	} else {
+		$("#busy_indicator").hide();
+	}
+}
+
+show_busy(false);</script></body></html>

@@ -1,0 +1,57 @@
+//- default index page template for maker projects
+//- bootstrap is used by default. implement mixins for other frameworks to override this
+block mixin_theme
+	include bootstrap_mixins.pug
+
+//- index.pug
+doctype html
+html(lang="en")
+	head
+		title Coshape Workspace
+		meta(name="description", content="Coshape Maker Projects is a creativity platform that combines customizable 3D models, instructional resources, and remixing tools for crafting zero-to-maker experiences.")
+		block styles
+			link(rel="stylesheet", href="/styles/bootstrap.min.css")
+
+
+	body
+
+		block navbar
+			//- bootstrap default navbar
+			//- include navbar.pug
+
+		div(class="container") 
+
+			block header
+				+page_header("Workspace", "", "Overview of customizer projects")
+
+			
+			a(id="download")
+			a(id="download_manual")
+
+			+row
+				+col(12)
+					block projets
+						h2 Projects
+						| {{#projects}}  
+						<a href="/{{name}}">{{name}}</a>
+						br
+						| {{/projects}} 
+
+
+			block footer
+				hr
+				footer
+					<p>Powered by <a href="https://coshape.io">coshape</a></p>
+
+		block scripts
+			script.
+
+				function show_busy(show) {
+					if (show) {
+						$("#busy_indicator").show();
+					} else {
+						$("#busy_indicator").hide();
+					}
+				}
+
+				show_busy(false);

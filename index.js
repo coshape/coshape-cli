@@ -3,6 +3,8 @@ var generator = require("./lib/generator")
 	, server = require("./lib/server")
 	, utils = require("./lib/utils")
 	, router = require("./lib/router")
+	, renderer = require("./lib/renderer")
+
 
 // create a new project
 // projectpath can be relative or absolute
@@ -44,7 +46,7 @@ exports.host = function(projectpath = ".") {
 	var cache = {}
 	try {
 		// build project into cache
-		var project_router = router.createRouter();
+		var project_router = router.createRouter({}, renderer.renderProjects);
 		generator.buildCachedWorkspace(utils.pathNormalize(projectpath), (url, data) => {
 			project_router.addDataPair(url, data);
 		});

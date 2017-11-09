@@ -1,7 +1,6 @@
 
-// title: Top for sub
-// author: foo
-// date: 2017-08-25 18:34:45.222774
+// title: Top for {{name}}
+// author: {{author}}
 
 // define paramaters with this function
 function getParameterDefinitions() {
