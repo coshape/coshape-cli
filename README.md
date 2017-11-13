@@ -40,6 +40,8 @@ $ coshape build
 
 **Have fun!**
 
+![screenshot](https://github.com/coshape/coshape-cli/doc/screenshot_table.png)
+
 
 ## License
 

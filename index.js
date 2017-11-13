@@ -47,9 +47,14 @@ exports.host = function(projectpath = ".") {
 	try {
 		// build project into cache
 		var project_router = router.createRouter({}, renderer.renderProjects);
-		generator.buildCachedWorkspace(utils.pathNormalize(projectpath), (url, data) => {
-			project_router.addDataPair(url, data);
-		});
+		var base_path = utils.pathNormalize(projectpath);
+		var func_update_cache = function() {
+			generator.buildCachedWorkspace(base_path, (url, data) => {
+				project_router.addDataPair(url, data);
+			});
+		};
+		func_update_cache();
+		utils.watchFolder(base_path, func_update_cache);
 		server.host(utils.pathNormalize(projectpath), project_router);
 	} catch (ex) {
 		utils.error(ex, "run");

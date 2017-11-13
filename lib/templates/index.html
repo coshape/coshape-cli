@@ -195,9 +195,14 @@ $(function()
       return {r:r,g:g,b:b};
   }
 
+  function rgba(r,g,b,a) {
+      return {r:r,g:g,b:b,a:a};
+  }
+
   function model_loaded() {
   	// download_manual();
   	var url = XMOD.Customizer.image();
+  	XMOD.Customizer.autozoom();
   	show_busy(false);
   }
 
@@ -217,7 +222,7 @@ $(function()
           success: function(data) { 
             //console.log(data);
               material.color = eval(material.color);
-            console.log(material.color);
+            //console.log(material.color);
             XMOD.Customizer.append_shape_code(data, trans_callback, XMOD.Customizer.io
               , material, parameter_callback); 
           },
@@ -232,7 +237,7 @@ $(function()
     } else if (type === "stl") {
       if (filepath != "") {
         var oReq = new XMLHttpRequest();
-        oReq.open("GET", "/api/" + filepath, true);
+        oReq.open("GET", "/" + filepath, true);
         oReq.responseType = "arraybuffer";
 
       	c_comps ++;
@@ -240,7 +245,7 @@ $(function()
         oReq.onload = function(oEvent) {
           //console.log(this.response);
           var arrayBuffer = this.response; //new ArrayBuffer(this.response);
-          console.log(arrayBuffer);
+          //console.log(arrayBuffer);
 
           // if you want to access the bytes:
           // var byteArray = new Uint8Array(arrayBuffer);
