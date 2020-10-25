@@ -1,7 +1,7 @@
 # Coshape CLI Tool
 
 An experimental toolkit to create web based 3D designs, convert and visualize CAD data and access the coshape CAD web services for Maker projects.
-Checkout [coshape.io](https://coshape.io) for the tutorials and examples.
+Checkout [coshape.io](https://coshape.io) for the [tutorials](https://coshape.io/documentation/main_file/) and [examples](https://coshape.io/coshape_cli/).
 
 ## Features
 - create customizable 3D modeling frontends
@@ -25,7 +25,7 @@ $ coshape
 
 ## Local Installation
 
-Of course, the toolkit can also be installed with root permissions.
+The toolkit can also be installed without root permissions.
 
 To install the toolkit locally, create a new directory e.g. 'coshape-tools' and run npm.
 
@@ -59,6 +59,14 @@ $ ./node_modules/coshape/bin/coshape.js
 
 ## Quick Start
 
+**Create a new workspace to manage several projects**
+
+Create a new directory for your customizer projects. Change into the new directory and initialize the workspace.
+
+``` bash
+$ coshape init
+```
+
 **Create a new project**
 
 Creates a new project folder and fills it with a dummy customizer for testing. 
@@ -70,12 +78,15 @@ $ cd my-awesome-project
 
 
 **test your projects in a live server**
-Change into customizer project folder or into a workspace and start the live server. Open a browser and go to the following url.
+
+Change into the customizer project folder or into a workspace and start the live server. Open a browser and go to the following url.
 ```
 http://localhost:3000
 ```
 
 Edit the customizer source code files and the server will automatically update the web application and reload the browser window.
+
+Have a look into our [Tutorial](https://coshape.io/documentation/main_file/)
 
 ``` bash
 $ coshape run
@@ -87,13 +98,7 @@ $ coshape run
 $ coshape build
 ```
 
-**Create a new workspace to manage several projects**
 
-Create a new directory for your customizer projects. Change into the new directory and initialize the workspace.
-
-``` bash
-$ coshape init
-```
 
 **Have fun!**
 
