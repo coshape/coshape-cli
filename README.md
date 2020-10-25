@@ -43,7 +43,7 @@ $ ./node_modules/coshape/bin/coshape.js
 The source code is on [GitHub](https://github.com/coshape/coshape-cli) and can be checked out like this.
 
 ``` bash
-$ git clone https://github.com/coshape/coshape-cli
+$ git clone https://github.com/coshape/coshape-cli.git/
 ```
 
 Change into the project directory, install the dependencies with npm and the toolkit is ready to be used.
