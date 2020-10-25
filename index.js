@@ -51,6 +51,9 @@ exports.host = function(projectpath = ".") {
 		var func_update_cache = function() {
 			generator.buildCachedWorkspace(base_path, (url, data) => {
 				project_router.addDataPair(url, data);
+				if (server.reload) {
+					server.reload.reload()
+				}
 			});
 		};
 		func_update_cache();
