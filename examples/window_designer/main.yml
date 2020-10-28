@@ -1,0 +1,105 @@
+---
+name: Window design customizer
+description: customize your own Window
+author: andreas@coshape.com
+date_created: 2017-10-22
+
+interface:
+  width:
+    min: 200
+    max: 2000
+    step: 2
+    unit: mm
+    value: 800
+  depth:
+    min: 10
+    max: 80
+    step: 2
+    unit: mm
+    value: 50
+  height:
+    min: 200
+    max: 2000
+    step: 2
+    unit: mm
+    value: 500
+  thickness:
+    min: 20
+    max: 100
+    step: 1
+    unit: mm
+    value: 50
+  layers:
+    min: 1
+    max: 4
+    step: 1
+    value: 2
+
+components:
+  - glas:
+    material:
+      type: glas
+      color: rgba(0.5, 0.6, 0.7, 0.25)
+    shape:
+      type: jscad
+      file: glas.jscad
+    parameters:
+      width: io.width
+      depth: io.depth * 0.25
+      height: io.height
+      layers: io.layers
+  - outer_frame:
+    material:
+      type: abs
+      color: rgb(0.95,1,1)
+    shape:
+      type: jscad
+      file: frame.jscad
+    parameters:
+      width: io.width
+      depth: io.depth
+      height: io.height
+      thickness: io.thickness
+  - inner_frame:
+    material:
+      type: abs
+      color: rgb(0.2,0.2,0.3)
+    shape:
+      type: jscad
+      file: inner_frame.jscad
+    parameters:
+      width: io.width
+      depth: io.depth
+      height: io.height
+      thickness: io.thickness
+  - handle:
+    material:
+      type: abs
+      color: rgb(1,0.95,1)
+    shape:
+      type: stl
+      file: handle.stl
+    position:
+      x: -io.width * 0.5 - io.thickness * 0.5
+      y: -io.depth * 0.5 - 48
+      z: 0
+    rotation:
+      x: 0
+      y: 0
+      z: 180
+    scale:
+      x: 1
+      y: 1
+      z: 2
+
+
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: >
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for
+    precision assembly.

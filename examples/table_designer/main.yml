@@ -1,0 +1,99 @@
+---
+name: Table design customizer
+description: customize your own wooden table
+author: andreas@coshape.com
+date_created: 2017-10-22
+
+interface:
+  width:
+    min: 1000
+    max: 3000
+    step: 2
+    unit: mm
+    value: 1500
+  depth:
+    min: 500
+    max: 1500
+    step: 2
+    unit: mm
+    value: 800
+  height:
+    min: 300
+    max: 1500
+    step: 1
+    unit: mm
+    value: 800
+  thickness:
+    min: 5
+    max: 200
+    step: 1
+    unit: mm
+    value: 30
+
+variants:
+  type: csv
+  file: tables.csv
+
+tools:
+  - 3d_printer:
+  - screw_driver:
+  - saw:
+
+components:
+  - plate:
+    material:
+      type: abs
+      color: rgb(1,0.5,0.1)
+    shape:
+      type: jscad
+      file: plate.jscad
+    position:
+      x: 0
+      y: 0
+      z: io.height - io.thickness
+    parameters:
+      height: io.thickness
+      width: io.depth
+      length: io.width
+  - leg_lhs:
+    material:
+      type: steel
+      color: rgb(0.1,0.1,0.1)
+    shape:
+      type: jscad
+      file: leg.jscad
+    position:
+      x: -io.width * 0.5 + io.thickness * 0.5
+      y: 0
+      z: 0
+    parameters:
+      height: io.height - io.thickness
+      width: io.depth
+      length: io.thickness
+      thickness: io.thickness
+  - leg_rhs:
+    material:
+      type: steel
+      color: rgb(0.1,0.1,0.1)
+    shape:
+      type: jscad
+      file: leg.jscad
+    position:
+      x: io.width * 0.5 - io.thickness * 0.5
+      y: 0
+      z: 0
+    parameters:
+      height: io.height - io.thickness
+      width: io.depth
+      length: io.thickness
+      thickness: io.thickness
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: >
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for
+    precision assembly.

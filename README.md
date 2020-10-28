@@ -1,7 +1,7 @@
 # Coshape CLI Tool
 
 An experimental toolkit to create web based 3D designs, convert and visualize CAD data and access the coshape CAD web services for Maker projects.
-Checkout [coshape.io](https://coshape.io) for the [tutorials](https://coshape.io/documentation/main_file/) and [examples](https://coshape.io/coshape_cli/).
+Checkout [coshape.io](https://coshape.io) for the [tutorial](https://coshape.io/documentation/main_file/) and [examples](https://coshape.io/coshape_cli/).
 
 ## Features
 - create customizable 3D modeling frontends
@@ -69,7 +69,7 @@ $ coshape init
 
 **Create a new project**
 
-Creates a new project folder and fills it with a dummy customizer for testing. 
+Creates a new project folder and fills it with a dummy customizer for testing.
 
 ``` bash
 $ coshape new my-awesome-project
@@ -79,7 +79,13 @@ $ cd my-awesome-project
 
 **test your projects in a live server**
 
-Change into the customizer project folder or into a workspace and start the live server. Open a browser and go to the following url.
+Change into the customizer project folder or into a workspace and start the live server.
+
+``` bash
+$ coshape run
+```
+
+Open a browser and go to the following url.
 ```
 http://localhost:3000
 ```
@@ -88,9 +94,10 @@ Edit the customizer source code files and the server will automatically update t
 
 Have a look into our [Tutorial](https://coshape.io/documentation/main_file/)
 
-``` bash
-$ coshape run
-```
+**Examples**
+
+Download or checkout the [examples](https://github.com/coshape/coshape-cli/tree/master/examples), change the directory into the examples directory or
+project directory, run the live server and start hacking with your favorite IDE.
 
 **Generate static files**
 

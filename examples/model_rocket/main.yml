@@ -1,0 +1,81 @@
+---
+name: Model Rocket
+description: Universal project generator to build model rockets
+author: andreas@coshape.com
+date_created: 2017-03-12
+
+interface:
+  height:
+    min: 50
+    max: 500
+    step: 20
+    unit: mm
+    value: 350
+  cone_height:
+    min: 10
+    max: 200
+    step: 10
+    unit: mm
+    value: 50
+  diameter:
+    min: 8
+    max: 50
+    step: 2
+    unit: mm
+    value: 25
+  number_of_fins:
+    min: 3
+    max: 8
+    step: 1
+    value: 3
+
+components:
+  - nose_cone:
+    material:
+      type: pla
+      color: rgb(0,0,1)
+    shape:
+      type: jscad
+      file: nose_cone.jscad
+    position:
+      z: io.height - io.cone_height -io.height/2
+    parameters:
+      cone_height: io.cone_height
+      tube_dia: io.diameter
+
+  - body_tube:
+    material:
+      type: cardboard
+      color: rgb(1,1,1)
+    position:
+      z: 40 -io.height/2
+    shape:
+      type: jscad
+      file: tube.jscad
+    parameters:
+      tube_height: io.height - io.cone_height -40
+      tube_dia: io.diameter
+
+  - fin_engine_unit:
+    material:
+      type: pla
+      color: rgb(1,0,0)
+    shape:
+      type: jscad
+      file: fin_unit.jscad
+    position:
+      z: 40 -io.height/2
+    parameters:
+      bladeN: io.number_of_fins
+      tube_dia: io.diameter
+
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: >
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for
+    precision assembly.

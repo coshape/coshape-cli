@@ -1,0 +1,177 @@
+---
+name: Quadrocopter
+description: Universal project generator to build quadrocopters
+author: andreas@coshape.com
+date_created: 2017-03-12
+
+interface:
+  arm_length:
+    min: 50
+    max: 500
+    unit: mm
+    value: 160
+  body_length:
+    min: 80
+    max: 500
+    step: 2
+    unit: mm
+    value: 150
+  body_width:
+    min: 10
+    max: 500
+    step: 2
+    unit: mm
+    value: 50
+  body_height:
+    min: 10
+    max: 100
+    step: 1
+    unit: mm
+    value: 50
+  propeller_diameter:
+    min: 50
+    max: 200
+    step: 5
+    value: 100
+  motor_diameter:
+    min: 10
+    max: 50
+    step: 1
+    value: 30
+
+tools:
+  - 3d_printer:
+  - screw_driver:
+
+components:
+  - chassis:
+    material:
+      type: pla
+      color: rgb(1,1,1)
+    shape:
+      type: jscad
+      file: quadrocopter_chassi.jscad
+    parameters:
+      arm_length: io.arm_length
+      motor_diameter: io.motor_diameter
+      body_length: io.body_length
+      body_width: io.body_width
+      body_height: io.body_height
+
+  - propeller1:
+    material:
+      type: pla
+      color: rgb(1,0,0)
+    shape:
+      type: stl
+      file: propeller.stl
+    position:
+      x: io.arm_length / Math.sqrt(2)
+      y: io.arm_length / Math.sqrt(2)
+      z: 30
+
+  - propeller2:
+    material:
+      type: pla
+      color: rgb(1,0,0)
+    shape:
+      type: stl
+      file: propeller.stl
+    position:
+      x: -io.arm_length / Math.sqrt(2)
+      y: io.arm_length / Math.sqrt(2)
+      z: 30
+
+    rotation:
+      z: 60
+  - propeller3:
+    material:
+      type: pla
+      color: rgb(1,0,0)
+    shape:
+      type: stl
+      file: propeller.stl
+    position:
+      x: -io.arm_length / Math.sqrt(2)
+      y: -io.arm_length / Math.sqrt(2)
+      z: 30
+
+  - propeller4:
+    material:
+      type: pla
+      color: rgb(1,0,0)
+    shape:
+      type: stl
+      file: propeller.stl
+    position:
+      x: io.arm_length / Math.sqrt(2)
+      y: -io.arm_length / Math.sqrt(2)
+      z: 30
+    rotation:
+      z: 60
+  - motor1:
+    material:
+      type: pla
+      color: rgb(0,0,1)
+    shape:
+      type: jscad
+      file: brushless_motor.jscad
+    position:
+      x: io.arm_length / Math.sqrt(2)
+      y: io.arm_length / Math.sqrt(2)
+      z: -5
+    parameters:
+      diameter: io.motor_diameter
+
+  - motor2:
+    material:
+      type: pla
+      color: rgb(0,0,1)
+    shape:
+      type: jscad
+      file: brushless_motor.jscad
+    position:
+      x: -io.arm_length / Math.sqrt(2)
+      y: io.arm_length / Math.sqrt(2)
+      z: -5
+    parameters:
+      diameter: io.motor_diameter
+
+  - motor3:
+    material:
+      type: pla
+      color: rgb(0,0,1)
+    shape:
+      type: jscad
+      file: brushless_motor.jscad
+    position:
+      x: -io.arm_length / Math.sqrt(2)
+      y: -io.arm_length / Math.sqrt(2)
+      z: -5
+    parameters:
+      diameter: io.motor_diameter
+
+  - motor4:
+    material:
+      type: pla
+      color: rgb(0,0,1)
+    shape:
+      type: jscad
+      file: brushless_motor.jscad
+    position:
+      x: io.arm_length / Math.sqrt(2)
+      y: -io.arm_length / Math.sqrt(2)
+      z: -5
+    parameters:
+      diameter: io.motor_diameter
+
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: >
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for
+    precision assembly.
