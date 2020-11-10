@@ -169,7 +169,7 @@ style.
 <script type="text/javascript" src="/js/dat.gui.min.js"></script>
 <script type="text/javascript" src="/openjscad.js"></script>
 <script type="text/javascript" src="/csg.js"></script>
-<script type="text/javascript" src="/js/three.min.js"></script>
+<script type="text/javascript" src="/js/three.js"></script>
 <script type="text/javascript" src="/js/STLLoader.js"></script>
 <script type="text/javascript" src="/js/TrackballControls.js"></script>
 <script type="text/javascript" src="/js/OrbitControls.js"></script>
@@ -187,14 +187,9 @@ style.
 
 
 script.
-		/*
-		$(document).ready( function() {
-		  	download_manual();		
-		});
-		*/
-
-		$(function() 
+		$(function()
 		{
+
 		  XMOD.Customizer.init();
 
 		  XMOD.Customizer.io_ids = [];
@@ -227,20 +222,20 @@ script.
 		        console.log("filepath " + filepath);
 		      	c_comps ++;
 
-		        $.ajax({ 
+		        $.ajax({
 		          type: "GET",
 		          dataType: "text",
 		          url: "/" + filepath,
-		          success: function(data) { 
+		          success: function(data) {
 		            //console.log(data);
 		              material.color = eval(material.color);
 		            //console.log(material.color);
 		            XMOD.Customizer.append_shape_code(data, trans_callback, XMOD.Customizer.io
-		              , material, parameter_callback); 
+		              , material, parameter_callback);
 		          },
-		          error: function(err) { 
-		            console.log("Error!"); 
-		            console.log(err); 
+		          error: function(err) {
+		            console.log("Error!");
+		            console.log(err);
 		          }
 		        });
 		      }
@@ -272,7 +267,7 @@ script.
 		          material.color = eval(material.color);
 		                  console.log(material.color);
 		                  XMOD.Customizer.append_shape_stl(arrayBuffer, trans_callback, XMOD.Customizer.io
-		              , material); 
+		              , material);
 		        };
 
 		        oReq.send();
@@ -283,11 +278,11 @@ script.
 
 		  show_busy(true);
 
-		  
+
 		  {{#components}}
 		  proc_file("{{ shape.type }}","{{{ shape.file }}}", {type: "{{ material.type }}"
 		    , color: "{{ material.color }}" }
-		    , function(io){ 
+		    , function(io){
 
 		    	c_done ++;
 			    console.log("c_done is " + c_done + " c_comps is " + c_comps);
@@ -298,16 +293,16 @@ script.
 		      	}
 
 		      {{{js_transformation}}} }
-		    , function(io){ 
+		    , function(io){
 
-		      {{{js_parameters}}};  
+		      {{{js_parameters}}};
 
 		      }
 		      );
 
 		  {{/components}}
 
-		  
+
 		}
 		);
 
@@ -448,10 +443,10 @@ script.
 		  {{#instructions}}
 
 		    if (i%2 === 0) {
-		      doc.addPage(); 
+		      doc.addPage();
 		      doc.fontSize(13)
-		      .text(doc_title + " - Page " + page, 50, 50, {align:"right"});    
-		      page ++;   
+		      .text(doc_title + " - Page " + page, 50, 50, {align:"right"});
+		      page ++;
 		      offset = 80;
 		    } else {
 		      offset = 400;
@@ -479,7 +474,7 @@ script.
 		    i++;
 
 		  {{/instructions}}
-		     
+
 		  // end and display the document in the iframe to the right
 		  doc.end();
 		  stream.on('finish', callback);

@@ -1,10 +1,11 @@
 //- bootstrap mixins to define building blocks for project pages
-//- (c) 2017 andreas fuchs, andreas@coshape.is
+//- (c) 2017 andreas@coshape.com
 
 mixin page_header(title, label, description)
 	div(class="page-header")
 		h1(style='text-align: left;') #{title} <span class="label label-default">#{label}</span>
 		<p>#{description}</p>
+		block
 
 mixin row
 	div(class="row")
@@ -33,18 +34,18 @@ mixin tile(num, title, image, url)
 			block
 
 mixin glyph(id)
-	if id 
-		<span class="#{id}" aria-hidden="true"></span>  
+	if id
+		<span class="#{id}" aria-hidden="true"></span>
 
 mixin button_base(label, type, callback, glyph_id, modal_id)
 	if modal_id
 		button(class="btn " + type, onclick=callback, data-toggle="modal" data-target="#" + modal_id)
-			+glyph(glyph_id)  
+			+glyph(glyph_id)
 			| #{label}
 			block
 	else
 		button(class="btn " + type, onclick=callback)
-			+glyph(glyph_id)  
+			+glyph(glyph_id)
 			| #{label}
 			block
 

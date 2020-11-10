@@ -17,7 +17,9 @@
     "customizer",
     "configurator",
     "build",
-    "cli"
+    "cli",
+    "CAD",
+    "3D printing"
   ],
   "license": "MIT",
   "bin": {

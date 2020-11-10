@@ -10,6 +10,12 @@ Checkout [coshape.io](https://coshape.io) for the [tutorial](https://coshape.io/
 - create and manage customizable projects
 - live server and static build
 
+## Change log
+- 2020-11-11 Updated GUI to allow for simple TRS and parameter changes per component (cf. screenshot)
+
+![screenshot_editing]( doc/screenshot_table_edit.png?raw=true )
+
+
 ## Global Installation
 
 Install the toolkit globally for easy access. Note that this will usually require root permission (sudo).
