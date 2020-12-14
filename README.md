@@ -11,6 +11,11 @@ Checkout [coshape.io](https://coshape.io) for the [tutorial](https://coshape.io/
 - live server and static build
 
 ## Change log
+
+- 2020-12-13 Added clone function and updated Quadrocopter example to use it.
+
+![screenshot_quadrocopter]( doc/screenshot_quadrocopter.png?raw=true )
+
 - 2020-11-11 Updated GUI to allow for simple TRS and parameter changes per component (cf. screenshot)
 
 ![screenshot_editing]( doc/screenshot_table_edit.png?raw=true )

@@ -47,7 +47,7 @@ components:
   - chassis:
     material:
       type: pla
-      color: rgb(1,1,1)
+      color: rgb(.3,.3,.3)
     shape:
       type: jscad
       file: quadrocopter_chassi.jscad
@@ -58,10 +58,24 @@ components:
       body_width: io.body_width
       body_height: io.body_height
 
-  - propeller1:
+  - body:
     material:
       type: pla
-      color: rgb(1,0,0)
+      color: rgb(1,1,1)
+    shape:
+      type: jscad
+      file: body.jscad
+    parameters:
+      arm_length: io.arm_length
+      motor_diameter: io.motor_diameter
+      body_length: io.body_length
+      body_width: io.body_width
+      body_height: io.body_height
+
+  - propeller_ccw:
+    material:
+      type: pla
+      color: rgb(0,1,1)
     shape:
       type: stl
       file: propeller.stl
@@ -69,37 +83,19 @@ components:
       x: io.arm_length / Math.sqrt(2)
       y: io.arm_length / Math.sqrt(2)
       z: 30
+    scale:
+      x: io.propeller_diameter/100
+      y: io.propeller_diameter/100
+      z: io.propeller_diameter/100
+    clone:
+      nx: 2
+      dx: -io.arm_length*2/ Math.sqrt(2)
+      offyx: -io.arm_length*2/ Math.sqrt(2)
 
-  - propeller2:
+  - propeller_cw:
     material:
       type: pla
-      color: rgb(1,0,0)
-    shape:
-      type: stl
-      file: propeller.stl
-    position:
-      x: -io.arm_length / Math.sqrt(2)
-      y: io.arm_length / Math.sqrt(2)
-      z: 30
-
-    rotation:
-      z: 60
-  - propeller3:
-    material:
-      type: pla
-      color: rgb(1,0,0)
-    shape:
-      type: stl
-      file: propeller.stl
-    position:
-      x: -io.arm_length / Math.sqrt(2)
-      y: -io.arm_length / Math.sqrt(2)
-      z: 30
-
-  - propeller4:
-    material:
-      type: pla
-      color: rgb(1,0,0)
+      color: rgb(1,0,1)
     shape:
       type: stl
       file: propeller.stl
@@ -107,9 +103,19 @@ components:
       x: io.arm_length / Math.sqrt(2)
       y: -io.arm_length / Math.sqrt(2)
       z: 30
-    rotation:
-      z: 60
-  - motor1:
+    scale:
+      x: -io.propeller_diameter/100
+      y: io.propeller_diameter/100
+      z: io.propeller_diameter/100
+    clone:
+      nx: 2
+      dx: -io.arm_length*2/ Math.sqrt(2)
+      offyx: io.arm_length*2/ Math.sqrt(2)
+
+
+
+
+  - motor:
     material:
       type: pla
       color: rgb(0,0,1)
@@ -122,48 +128,13 @@ components:
       z: -5
     parameters:
       diameter: io.motor_diameter
+    clone:
+      nx: 2
+      ny: 2
+      dx: -io.arm_length*2 / Math.sqrt(2)
+      dy: -io.arm_length*2 / Math.sqrt(2)
 
-  - motor2:
-    material:
-      type: pla
-      color: rgb(0,0,1)
-    shape:
-      type: jscad
-      file: brushless_motor.jscad
-    position:
-      x: -io.arm_length / Math.sqrt(2)
-      y: io.arm_length / Math.sqrt(2)
-      z: -5
-    parameters:
-      diameter: io.motor_diameter
 
-  - motor3:
-    material:
-      type: pla
-      color: rgb(0,0,1)
-    shape:
-      type: jscad
-      file: brushless_motor.jscad
-    position:
-      x: -io.arm_length / Math.sqrt(2)
-      y: -io.arm_length / Math.sqrt(2)
-      z: -5
-    parameters:
-      diameter: io.motor_diameter
-
-  - motor4:
-    material:
-      type: pla
-      color: rgb(0,0,1)
-    shape:
-      type: jscad
-      file: brushless_motor.jscad
-    position:
-      x: io.arm_length / Math.sqrt(2)
-      y: -io.arm_length / Math.sqrt(2)
-      z: -5
-    parameters:
-      diameter: io.motor_diameter
 
 
 instructions:

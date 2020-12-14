@@ -55,13 +55,10 @@ function body(l,w,h) {
 });
 }
 
-
 function body_shell(l,w,h, h2) {
   var b = body(l, w,h)
-  var cut = cube({size:[l+1, w+1, h+1], center:true}).translate([0,0,h2])
-  var cut2 = cube({size:[l+1, w+1, h+1], center:true}).translate([l-(l-w)/4,0,0])
-
-  return difference(b, cut, cut2)
+  var cut = cube({size:[l+1, w+1, h+1], center:true}).translate([-(l-w)/4,0,h2])
+  return difference(b, cut)
 }
 
 
@@ -70,22 +67,11 @@ function main(p) {
 
 	// add base case
 
-	// add arms
-	res.push(arm_motor_mount(p.motor_diameter, p.motor_diameter/2
-	, p.wall_thickness, p.motor_diameter, p.arm_length).translate([p.arm_length, 0, 0]).rotateZ(45));
-  res.push(arm_motor_mount(p.motor_diameter, p.motor_diameter/2
-  	, p.wall_thickness, p.motor_diameter, p.arm_length).translate([p.arm_length, 0, 0]).rotateZ(45+90));
-  res.push(arm_motor_mount(p.motor_diameter, p.motor_diameter/2
-  	, p.wall_thickness, p.motor_diameter, p.arm_length).translate([p.arm_length, 0, 0]).rotateZ(45+180));
-  res.push(arm_motor_mount(p.motor_diameter, p.motor_diameter/2
-  	, p.wall_thickness, p.motor_diameter, p.arm_length).translate([p.arm_length, 0, 0]).rotateZ(45+270));
-
   //res.push(body(p.body_length, p.body_width, p.body_height));
-  res.push(body_shell(p.body_length, p.body_width, p.body_height, p.body_height*0.75));
-
 
   //res.push(body(p.body_width*2, p.body_width*1.5, p.body_height/2));
 
+  res.push(body_shell(p.body_length, p.body_width, p.body_height, -p.body_height*0.25));
 
 
 	// cut space for battery and electronics
