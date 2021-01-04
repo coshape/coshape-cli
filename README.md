@@ -12,6 +12,8 @@ Checkout [coshape.io](https://coshape.io) for the [tutorial](https://coshape.io/
 
 ## Change log
 
+- 2021-01-03 Added indication of model size to the 3D view
+
 - 2020-12-13 Added clone function and updated Quadrocopter example to use it.
 
 ![screenshot_quadrocopter]( doc/screenshot_quadrocopter.png?raw=true )
