@@ -186,6 +186,17 @@ input[type=range].slider:focus::-ms-fill-upper {
   XMOD.Customizer.io_ids.push("{{name}}");
   {{/interface_list}}
 
+  {{#expression_list}}
+  XMOD.Customizer.io.{{exp}} = {{{value}}};
+  XMOD.Customizer.io.{{name}} = XMOD.Customizer.io.{{exp}}(XMOD.Customizer.io);
+  {{/expression_list}}
+
+  {{#validation_list}}
+  XMOD.Customizer.io.{{exp}} = {{{value}}};
+  XMOD.Customizer.io.{{name}} = XMOD.Customizer.io.{{exp}}(XMOD.Customizer.io);
+  {{/validation_list}}
+
+
   function rgb(r,g,b) {
       return {r:r,g:g,b:b};
   }
@@ -204,23 +215,25 @@ input[type=range].slider:focus::-ms-fill-upper {
   var c_comps = 0;
   var c_done = 0;
 
-  function proc_file(type, filepath, material, trans_callback, parameter_callback, clone_function) {
+  function proc_file(name, type, filepath, parent_name, material, trans_callback, parameter_callback, clone_function) {
 
-  	if (!filepath) {
-  		return
-  	}
+  	//if (!filepath) {
+  	//	return
+  	//}
 
-  	let shape = { 
-	  	type: type, 
-	  	material: material, 
-	  	transform_callback: trans_callback, 
+  	let shape = {
+      name: name,
+	  	type: type,
+      parent_name: parent_name,
+	  	material: material,
+	  	transform_callback: trans_callback,
 	  	parameters_callback: parameter_callback,
-	  	clone_function: clone_function 
+	  	clone_function: clone_function
   	}
 
 
   	if (type === "jscad") {
-  		// text 
+  		// text
       	c_comps ++;
         $.ajax({
           type: "GET",
@@ -256,6 +269,15 @@ input[type=range].slider:focus::-ms-fill-upper {
 
         oReq.send();
 
+    } else if (type === "null") {
+      	c_comps ++;
+        // delay group update and wait quickly for other parts registering
+        window.setTimeout(function () {
+          shape.material.color = eval(shape.material.color);
+          shape.io = XMOD.Customizer.io
+          XMOD.Customizer.append_shape(shape)
+        }, 1);
+
     }
   }
 
@@ -263,23 +285,28 @@ input[type=range].slider:focus::-ms-fill-upper {
 
 
   {{#components}}
-  proc_file("{{ shape.type }}","{{{ shape.file }}}", {type: "{{ material.type }}"
+  proc_file("{{ name }}", "{{ shape.type }}","{{{ shape.file }}}", "{{parent_name}}", {type: "{{ material.type }}"
     , color: "{{ material.color }}" }
     , function(io){
 
     	c_done ++;
-	    console.log("c_done is " + c_done + " c_comps is " + c_comps);
+	    console.log("c_done is " + c_done + " c_comps is " + c_comps, this.name);
 	    if (c_done == c_comps) {
 	      	// callback that model is loaded
 	      	c_done=0;
 	      	console.log("model loaded")
-			model_loaded();
+
+			       model_loaded();
       	}
+
+      {{{js_io_mapping}}}
 
       {{{js_transformation}}} }
     , function(io){
 
-      {{{js_parameters}}};
+      {{{js_io_mapping}}}
+
+      {{{js_parameters}}}
 
       },
       {{{clone_function}}}

@@ -1,0 +1,68 @@
+---
+name: Model rocket with fitting box case
+description: This example shows how to include and cascade projects
+author: andreas@coshape.com
+date_created: 2021-03-05
+
+interface:
+  length:
+    min: 10
+    max: 1000
+    step: 1
+    unit: mm
+    value: 350
+  width:
+    min: 10
+    max: 300
+    step: 1
+    unit: mm
+    value: 150
+  spacing:
+    min: 1
+    max: 20
+    step: 1
+    unit: mm
+    value: 5
+  thickness:
+    min: 0.1
+    max: 10
+    step: 0.1
+    unit: mm
+    value: 3
+
+
+components:
+
+  - rocket:
+    project:
+      file: ../model_rocket/main.yml
+    position:
+      x: 0
+    rotation:
+      y: -90
+    parameters:
+      height: io.length
+      diameter: io.width/7.0
+
+
+  - box:
+    project:
+      file: ../puzzle_box/main.yml
+    position:
+      x: 0
+    parameters:
+      length: io.length + io.spacing*2
+      width: io.width + io.spacing*2
+      height: io.width + io.spacing*2
+      thickness: io.thickness
+
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: >
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for
+    precision assembly.

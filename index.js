@@ -45,10 +45,11 @@ exports.build = function(projectpath = ".") {
 exports.host = function(projectpath = ".") {
 	var cache = {}
 	try {
-		// build project into cache
+		// map project into cache
 		var project_router = router.createRouter({}, renderer.renderProjects);
 		var base_path = utils.pathNormalize(projectpath);
 		var func_update_cache = function() {
+			utils.info('update cache', 'host')
 			generator.buildCachedWorkspace(base_path, (url, data) => {
 				project_router.addDataPair(url, data);
 				if (server.reload) {
@@ -57,6 +58,7 @@ exports.host = function(projectpath = ".") {
 			});
 		};
 		func_update_cache();
+		utils.info('watch folder ' + base_path , 'host')
 		utils.watchFolder(base_path, func_update_cache);
 		server.host(utils.pathNormalize(projectpath), project_router);
 	} catch (ex) {
@@ -64,4 +66,3 @@ exports.host = function(projectpath = ".") {
 		utils.info("-h for details");
 	}
 }
-

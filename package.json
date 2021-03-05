@@ -46,7 +46,7 @@
     "yaml-include": "^1.2.0"
   },
   "devDependencies": {
-    "mocha": "^4.0.1",
+    "mocha": "^8.3.0",
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6"
   }
