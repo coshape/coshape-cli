@@ -3,7 +3,7 @@
 var nomnom = require('nomnom');
 var cs = require('../index.js');
 console.log("/ - - -  / - - \\  / - - -  -     -  / - - \\  - - - \\  / - - -\n-        -     -  \\ - - \\  - - - -  - - - -  - - - /  - - -  \n\\ - - -  \\ - - /  - - - /  -     -  -     -  -        \\ - - - " + require('../package.json').version);
-    
+
 nomnom.script("coshape");
 nomnom.command('init')
     .option('workspace', {
@@ -44,4 +44,28 @@ nomnom.command('run')
         cs.host(opts.project);
     })
     .help("host project in current working directory or provided path")
-nomnom.parse();   
+nomnom.command('share')
+.option('project', {
+      position: 1,
+      default: '.',
+      help: "project name or path"
+    })
+    .callback(function(opts) {
+        cs.share(opts.project);
+    })
+    .help("publish project in current working directory or provided path to IPFS")
+nomnom.command('clone')
+.option('filehash', {
+      position: 1,
+      help: "IPFS CID file hash"
+    })
+.option('project', {
+      position: 2,
+      default: '.',
+      help: "project name or path"
+    })
+    .callback(function(opts) {
+        cs.clone(opts.filehash, opts.project);
+    })
+    .help("host project in current working directory or provided path")
+nomnom.parse();

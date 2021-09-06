@@ -9,8 +9,11 @@ Checkout [coshape.io](https://coshape.io) for the [tutorial](https://coshape.io/
 - integrated SCAD (OpenJscad), STL and SVG for 3D printers and Laser cutters
 - create and manage customizable projects
 - live server and static build
+- share your customizer projects with others using IPFS ([InterPlanetary File System](https://ipfs.io/))
 
 ## Change log
+
+- 2021-09-06 Integrated support for the decentralized IPFS to share customizer projects or CAD files peer to peer
 
 - 2021-03-05 Implemented cascading project inclusion, (cf. example boxed model rocket)
 
@@ -120,7 +123,38 @@ project directory, run the live server and start hacking with your favorite IDE.
 $ coshape build
 ```
 
+**Share your projects with others**
 
+To share your parameteric CAD models with others, e.g. for collaboration without
+relying on a central server it is possible to share your project folder with others via IPFS
+([InterPlanetary File System](https://ipfs.io/)).
+Change the directory into the project you like to share and use the command 'share'.
+
+```bash
+cd <project_folder>
+$ coshape share
+...
+coshape info sharing on IPFS @ /ipfs/QmWvhaGtJeQdMHFXrko9Yo8LHyVZRUMPYC6mRGeD8qrRn5
+```
+
+The application will walk through the project's file structure and start hosting the files as
+an IPFS  node.
+The last line prints out the IPFS CID ([content identifier](https://proto.school/anatomy-of-a-cid/01)) which can be used
+by your peers to access the shared project folder. Don't terminiate the application until all your peers finished to clone
+your project folder.
+
+Note: every change of files results in a change of the CID and has to be shared anew with your collaborators.
+
+
+**Clone a shared project**
+
+To clone a shared project folder use the command 'clone' followed by the CID ([content identifier](https://proto.school/anatomy-of-a-cid/01)) of the shared project.
+
+```bash
+$ coshape clone QmWvhaGtJeQdMHFXrko9Yo8LHyVZRUMPYC6mRGeD8qrRn5
+```
+
+Note: file changes have to be merged manually.
 
 **Have fun!**
 

@@ -19,7 +19,11 @@
     "build",
     "cli",
     "CAD",
-    "3D printing"
+    "OpenJSCAD",
+    "3D printing",
+    "IPFS",
+    "design",
+    "collaboration"
   ],
   "license": "MIT",
   "bin": {
@@ -36,6 +40,7 @@
     "copy-dir": "^0.3.0",
     "express": "^4.16.2",
     "get-installed-path": "^4.0.8",
+    "ipfs-core": "^0.10.5",
     "js-yaml": "^3.14.0",
     "jsonfile": "^4.0.0",
     "mkdirp": "^0.5.1",
