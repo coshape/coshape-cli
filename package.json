@@ -32,7 +32,7 @@
   "main": "index.js",
   "name": "coshape",
   "scripts": {
-    "test": "mocha",
+    "test": "nyc mocha --timeout=2000",
     "templates": "pug lib/pug/index.pug lib/pug/home.pug --out lib/templates"
   },
   "version": "0.1.14",
@@ -41,6 +41,7 @@
     "express": "^4.16.2",
     "get-installed-path": "^4.0.8",
     "ipfs-core": "^0.10.5",
+    "istanbul": "^0.4.5",
     "js-yaml": "^3.14.0",
     "jsonfile": "^4.0.0",
     "mkdirp": "^0.5.1",
@@ -52,7 +53,10 @@
   },
   "devDependencies": {
     "mocha": "^8.3.0",
+    "nyc": "^15.1.0",
     "pug": "^2.0.0-rc.4",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^2.6.3",
+    "supertest": "^6.1.6"
   }
 }
