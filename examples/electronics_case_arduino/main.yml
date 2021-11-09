@@ -1,0 +1,87 @@
+---
+name: Electronics Case - Arduino
+description: Universal project generator to build electronics cases for Arduino boards
+author: andreas@coshape.com
+date_created: 2017-03-12
+
+interface:
+  length:
+    min: 80
+    max: 200
+    step: 2
+    unit: mm
+    value: 100
+  width:
+    min: 80
+    max: 200
+    step: 2
+    unit: mm
+    value: 80
+  height:
+    min: 25
+    max: 100
+    step: 1
+    unit: mm
+    value: 50
+
+tools:
+  - 3d_printer:
+  - screw_driver:
+
+components:
+  - case_top:
+    material:
+      type: pla
+      color: rgb(1,0,0)
+    shape:
+      type: jscad
+      file: case_top.jscad
+    position:
+      z: io.height/4
+    rotation:
+      x: 180
+    parameters:
+      height: io.height/4
+      width: io.width
+      length: io.length
+  - case_bottom:
+    material:
+      type: pla
+      color: rgb(1,1,1)
+    shape:
+      type: jscad
+      file: case_bottom.jscad
+    position:
+      z: -io.height/4*3
+    parameters:
+      height: io.height/4*3
+      width: io.width
+      length: io.length
+  - arduino:
+    material:
+      type: pcb
+      color: rgb(0,0.3,0.7)
+    shape:
+      type: stl
+      file: arduino_uno.stl
+    position:
+      x: -io.length/2 + 35
+      y: -1
+      z: -io.height/4*3 + 10
+    rotation:
+      z: 180
+  - screws:
+    material:
+      type: metal
+      color: rgb(0.5,0.5,0.5)
+    quantity: 4
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: >
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for
+    precision assembly.

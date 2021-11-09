@@ -169,7 +169,7 @@ style.
 <script type="text/javascript" src="/js/dat.gui.min.js"></script>
 <script type="text/javascript" src="/openjscad.js"></script>
 <script type="text/javascript" src="/csg.js"></script>
-<script type="text/javascript" src="/js/three.min.js"></script>
+<script type="text/javascript" src="/js/three.js"></script>
 <script type="text/javascript" src="/js/STLLoader.js"></script>
 <script type="text/javascript" src="/js/TrackballControls.js"></script>
 <script type="text/javascript" src="/js/OrbitControls.js"></script>
@@ -187,14 +187,9 @@ style.
 
 
 script.
-		/*
-		$(document).ready( function() {
-		  	download_manual();		
-		});
-		*/
-
-		$(function() 
+		$(function()
 		{
+
 		  XMOD.Customizer.init();
 
 		  XMOD.Customizer.io_ids = [];
@@ -221,33 +216,43 @@ script.
 		  var c_comps = 0;
 		  var c_done = 0;
 
-		  function proc_file(type, filepath, material, trans_callback, parameter_callback) {
-		    if (type === "jscad") {
-		      if (filepath != "") {
-		        console.log("filepath " + filepath);
-		      	c_comps ++;
+		  function proc_file(type, filepath, material, trans_callback, parameter_callback, clone_function) {
 
-		        $.ajax({ 
+		  	if (!filepath) {
+		  		return
+		  	}
+
+		  	let shape = { 
+			  	type: type, 
+			  	material: material, 
+			  	transform_callback: trans_callback, 
+			  	parameters_callback: parameter_callback,
+			  	clone_function: clone_function 
+		  	}
+
+
+		  	if (type === "jscad") {
+		  		// text 
+		      	c_comps ++;
+		        $.ajax({
 		          type: "GET",
 		          dataType: "text",
 		          url: "/" + filepath,
-		          success: function(data) { 
-		            //console.log(data);
-		              material.color = eval(material.color);
-		            //console.log(material.color);
-		            XMOD.Customizer.append_shape_code(data, trans_callback, XMOD.Customizer.io
-		              , material, parameter_callback); 
+		          success: function(data) {
+		            material.color = eval(material.color);
+		            shape.material.color = eval(shape.material.color);
+		           	shape.io = XMOD.Customizer.io
+		            shape.data = data
+		           	XMOD.Customizer.append_shape(shape)
+
 		          },
-		          error: function(err) { 
-		            console.log("Error!"); 
-		            console.log(err); 
+		          error: function(err) {
+		            console.log("Error!");
+		            console.log(err);
 		          }
 		        });
-		      }
-		    } else if (type === "svg") {
-		      // ...
 		    } else if (type === "stl") {
-		      if (filepath != "") {
+		    	// binary
 		        var oReq = new XMLHttpRequest();
 		        oReq.open("GET", "/" + filepath, true);
 		        oReq.responseType = "arraybuffer";
@@ -255,59 +260,46 @@ script.
 		      	c_comps ++;
 
 		        oReq.onload = function(oEvent) {
-		          //console.log(this.response);
-		          var arrayBuffer = this.response; //new ArrayBuffer(this.response);
-		          //console.log(arrayBuffer);
-
-		          // if you want to access the bytes:
-		          // var byteArray = new Uint8Array(arrayBuffer);
-		          // ...
-
-		          // If you want to use the image in your DOM:
-		          //var blob = new Blob(arrayBuffer, {type: "image/png"});
-		          //var url = URL.createObjectURL(blob);
-		          //someImageElement.src = url;
-
-		          // whatever...
-		          material.color = eval(material.color);
-		                  console.log(material.color);
-		                  XMOD.Customizer.append_shape_stl(arrayBuffer, trans_callback, XMOD.Customizer.io
-		              , material); 
+		           shape.data = this.response
+		           shape.material.color = eval(shape.material.color);
+		           shape.io = XMOD.Customizer.io
+		           XMOD.Customizer.append_shape(shape)
 		        };
 
 		        oReq.send();
 
-		      }
 		    }
 		  }
 
 		  show_busy(true);
 
-		  
+
 		  {{#components}}
 		  proc_file("{{ shape.type }}","{{{ shape.file }}}", {type: "{{ material.type }}"
 		    , color: "{{ material.color }}" }
-		    , function(io){ 
+		    , function(io){
 
 		    	c_done ++;
 			    console.log("c_done is " + c_done + " c_comps is " + c_comps);
 			    if (c_done == c_comps) {
 			      	// callback that model is loaded
 			      	c_done=0;
+			      	console.log("model loaded")
 					model_loaded();
 		      	}
 
 		      {{{js_transformation}}} }
-		    , function(io){ 
+		    , function(io){
 
-		      {{{js_parameters}}};  
+		      {{{js_parameters}}};
 
-		      }
+		      },
+		      {{{clone_function}}}
 		      );
 
 		  {{/components}}
 
-		  
+
 		}
 		);
 
@@ -448,10 +440,10 @@ script.
 		  {{#instructions}}
 
 		    if (i%2 === 0) {
-		      doc.addPage(); 
+		      doc.addPage();
 		      doc.fontSize(13)
-		      .text(doc_title + " - Page " + page, 50, 50, {align:"right"});    
-		      page ++;   
+		      .text(doc_title + " - Page " + page, 50, 50, {align:"right"});
+		      page ++;
 		      offset = 80;
 		    } else {
 		      offset = 400;
@@ -479,7 +471,7 @@ script.
 		    i++;
 
 		  {{/instructions}}
-		     
+
 		  // end and display the document in the iframe to the right
 		  doc.end();
 		  stream.on('finish', callback);

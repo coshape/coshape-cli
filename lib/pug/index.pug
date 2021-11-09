@@ -11,82 +11,73 @@ html(lang="en")
 		meta(name="description", content="Coshape Maker Projects is a creativity platform that combines customizable 3D models, instructional resources, and remixing tools for crafting zero-to-maker experiences.")
 		block styles
 			link(rel="stylesheet", href="/styles/bootstrap.min.css")
+		<script src="/reload/reload.js"></script>
 
-		include customizer.pug 
-
+		include customizer.pug
 
 	body
 		// div(id="busy_indicator")
 		div.modal-backdrop(id="busy_indicator", style="opacity:0.6;")
-			div.loader(id="busy_indicator", style="position:fixed; left:50%; top:40%; z-index:1000;") 
+			div.loader(id="busy_indicator", style="position:fixed; left:50%; top:40%; z-index:1000;")
 
 		block navbar
 			//- bootstrap default navbar
-			//- include navbar.pug
+			// include navbar.pug
 
-		div(class="container") 
+			div(id="edit", style="position:absolute; z-index:1; display:none;")
+				button.btn.btn-sm.btn-default(type='button', onclick="XMOD.mainview.onUseTranslation()" , data-toggle="tooltip", data-placement="bottom", title="Translate")
+					span.glyphicon.glyphicon-move
+				button.btn.btn-sm.btn-default(type='button', onclick="XMOD.mainview.onUseRotation()" , data-toggle="tooltip", data-placement="bottom", title="Rotate")
+					span.glyphicon.glyphicon-repeat
+				button.btn.btn-sm.btn-default(type='button', onclick="XMOD.mainview.onUseScale()" , data-toggle="tooltip", data-placement="bottom", title="Scale")
+					span.glyphicon.glyphicon-resize-full
+				div(id="mydatgui")
 
-			block header
-				+page_header("{{name}}", "", "{{description}}")
+			input.file(id="glupload", type="file", onchange="XMOD.mainview.onUpload(event)", style="display:none;")
 
-				
+		div(id="customizer",style="position:fixed; width:100%; height:100%; background:#fafafa; overflow: hidden;")
 
-			block customizer
-				+row
-					+col("8")
-						div(id="customizer",style="height:400px;")
-						// div.loader(style="position:fixed; left:50%; top:50%; z-index:1000;") 
-							p processing ...
-					+col("4")
-						div
-							label.checkbox-inline
-								input(type="checkbox", value="", checked)
-								| use 3D Printer
-							label.checkbox-inline
-								input(type="checkbox", value="", checked)
-								| use Laser Cutter / CNC Router
-						br
+		div(class="container", style="position:absolute; height:100%; overflow:scroll; right:0; width: 100%; max-width:300px; background: rgba(255,255,255,0.5); border-left:solid 6px #ddd")
 
-						+button_bar
-							+button_large_primary("Download","download_model();")
+			// block header
 
 
-						hr
-						+panel("Customize") 
-							| {{{html}}}
+			+row
+				+col(12)
+					+page_header("{{name}}", "", "{{description}}")
+
+					+button_bar
+						+button_primary("Download CAD Files","download_model();")
 
 
-						hr
-						
-						<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><small>The 3D models are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</small></a>
+					// hr
+					h3 Parameters
+					| {{{html}}}
+					hr
+
+				+col(12)
+					block instructions
+						h3 Instructions
+						| {{#instructions}}
+						+panel("{{title}}")
+							| {{text}}
+						| {{/instructions}}
+
+				+col(12)
+					h3 Components
+					+table("Component", "Quantity")
+						| {{#components}}
+						+table_row("{{name}}","1")
+						| {{/components}}
+
+
 
 			a(id="download")
 			a(id="download_manual")
 
-			hr
-			+row
-				+col(6)
-					block instructions
-						h2 Instructions
-						| {{#instructions}}  
-						+panel("{{title}}")
-							| {{text}}
-						| {{/instructions}} 
+		div(style="position:absolute; bottom:0; padding: 0.5em")
+			<p>Powered by <a href="https://coshape.io?o=cli">coshape</a></p>
 
-				+col(6)
-					block components
-						h2 Components
-						+panel
-							+table("Component", "Quantity")
-								| {{#components}}
-								+table_row("{{name}}","1")
-								| {{/components}}
-
-
-			block footer
-				hr
-				footer
-					<p>Powered by <a href="https://coshape.io">coshape</a></p>
 
 		block scripts
 			script.

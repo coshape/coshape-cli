@@ -1,0 +1,254 @@
+---
+name: Puzzle Box for Laser Cutter
+description: Universal box design for laser cutters, CNC routers or 3D printers
+author: andreas@coshape.com
+date_created: 2017-07-01
+
+interface:
+  length:
+    min: 10
+    max: 300
+    step: 1
+    unit: mm
+    value: 60
+  width:
+    min: 10
+    max: 300
+    step: 1
+    unit: mm
+    value: 60
+  height:
+    min: 10
+    max: 300
+    step: 1
+    unit: mm
+    value: 60
+  thickness:
+    min: 0.1
+    max: 10
+    step: 0.1
+    unit: mm
+    value: 3
+  theeths:
+    min: 2
+    max: 20
+    step: 1
+    value: 4
+
+tools:
+  - 3d_printer:
+  - screw_driver:
+  - laser_cutter:
+      parameters:
+        - path_length: 100
+        - cost_per_path_length: 100
+        - material_area: 10
+        - material_cost_per_area: 10
+        - initial_costs: 100
+      costs:
+        value: path_length * cost_per_path_length + material_area * material_cost_per_area + initial_costs
+        unit: USD
+
+cost:
+  currency: USD
+  sheet:
+    wood:
+      raw: bb_area * thickness * 10
+      cut: length * 0.1
+      drill: 2.5
+      setup: 25
+    metal:
+      raw: bb_area * thickness * 10
+      cut: length * 0.5
+      drill: 2.5
+      bend: 0.1 * angle
+      setup: 50
+    plastic:
+      raw: volume * 10
+      cut: length * 0.1
+      drill: 2.5
+      print: volume * 0.001
+      setup: 25
+  volume:
+    wood:
+      raw: bb_area * thickness * 10
+      cut: length * 0.1
+      drill: 2.5
+      setup: 25
+    metal:
+      raw: bb_area * thickness * 10
+      cut: length * 0.5
+      drill: 2.5
+      bend: 0.1 * angle
+      setup: 50
+    plastic:
+      raw: volume * 10
+      cut: length * 0.1
+      drill: 2.5
+      print: volume * 0.001
+      setup: 25
+
+
+components:
+  - side_1:
+    tool: laser_cutter
+    material:
+      type: abs
+      color: rgb(0.5,1,0)
+    shape:
+      type: jscad
+      file: box_puzzle.jscad
+    position:
+      z: 0
+      y: -io.width / 2.0
+    rotation:
+      x: 90
+      z: 0
+    scale:
+      z: io.thickness
+    parameters:
+      width: io.length
+      height: io.height
+      thickness: -io.thickness
+      teeth_count_left: 1
+      teeth_count_top: io.theeths
+      teeth_count_right: io.theeths
+      teeth_count_bottom: io.theeths
+      teeth_depth_left: -io.thickness
+      teeth_depth_top: -io.thickness
+      teeth_depth_right: -io.thickness
+      teeth_depth_bottom: io.thickness
+      teeth_offset_left: -io.thickness
+  - side_2:
+    tool: laser_cutter
+    material:
+      type: abs
+      color: rgb(0.5,1,0)
+    shape:
+      type: jscad
+      file: box_puzzle.jscad
+    position:
+      z: 0
+      y: io.width / 2.0
+    rotation:
+      x: 90
+      y: 180
+      z: 0
+    scale:
+      z: io.thickness
+    parameters:
+      width: io.length
+      height: io.height
+      thickness: io.thickness
+      teeth_count_left: 1
+      teeth_count_top: io.theeths
+      teeth_count_right: io.theeths
+      teeth_count_bottom: io.theeths
+      teeth_depth_left: -io.thickness
+      teeth_depth_top: -io.thickness
+      teeth_depth_right: -io.thickness
+      teeth_depth_bottom: io.thickness
+      teeth_offset_left: -io.thickness
+
+  - side_3:
+    tool: laser_cutter
+    material:
+      type: ply_wood
+      color: rgb(1,0,0.5)
+    shape:
+      type: jscad
+      file: box_puzzle.jscad
+    position:
+      z: 0
+      x: io.length / 2
+    rotation:
+      x: 90
+      y: 90
+      z: 0
+    scale:
+      z: io.thickness
+    parameters:
+      width: io.width
+      height: io.height
+      thickness: io.thickness
+      teeth_count_left: 1
+      teeth_count_top: io.theeths
+      teeth_count_right: io.theeths
+      teeth_count_bottom: io.theeths
+      teeth_depth_left: io.thickness
+      teeth_depth_top: -io.thickness
+      teeth_depth_right: -io.thickness
+      teeth_depth_bottom: io.thickness
+      teeth_offset_left: -io.thickness
+
+  - side_4:
+    tool: laser_cutter
+    material:
+      type: ply_wood
+      color: rgb(1,0,0.5)
+    shape:
+      type: jscad
+      file: box_puzzle.jscad
+    position:
+      z: 0
+      x: -io.length / 2
+    rotation:
+      x: 90
+      y: -90
+      z: 0
+    scale:
+      z: io.thickness
+    parameters:
+      width: io.width
+      height: io.height
+      thickness: io.thickness
+      teeth_count_left: 1
+      teeth_count_top: io.theeths
+      teeth_count_right: io.theeths
+      teeth_count_bottom: io.theeths
+      teeth_depth_left: io.thickness
+      teeth_depth_top: -io.thickness
+      teeth_depth_right: -io.thickness
+      teeth_depth_bottom: io.thickness
+      teeth_offset_left: -io.thickness
+  - bottom:
+    tool: laser_cutter
+    material:
+      type: ply_wood
+      color: rgb(0,0.5,1)
+    shape:
+      type: jscad
+      file: box_puzzle.jscad
+    position:
+      z: -io.height / 2.0
+      y: 0
+    rotation:
+      x: 0
+      z: 0
+    scale:
+      z: io.thickness
+    parameters:
+      width: io.length
+      height: io.width
+      thickness: io.thickness
+      teeth_count_left: io.theeths
+      teeth_count_top: io.theeths
+      teeth_count_right: io.theeths
+      teeth_count_bottom: io.theeths
+      teeth_depth_left: io.thickness
+      teeth_depth_top: -io.thickness
+      teeth_depth_right: io.thickness
+      teeth_depth_bottom: -io.thickness
+
+
+
+
+instructions:
+- preface:
+  title: Assembly Tip
+  text: >
+    Read all istructions before work on your model.
+    Make sure you have all parts and supplies. Test-fit
+    all parts together before applying any glue. If any
+    parts don't fit properly, sand as required for
+    precision assembly.
