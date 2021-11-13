@@ -32,7 +32,8 @@
   "main": "index.js",
   "name": "coshape",
   "scripts": {
-    "test": "nyc mocha --timeout=2000",
+    "test": "mocha --timeout=2000",
+    "coverage": "nyc npm run test",
     "templates": "pug lib/pug/index.pug lib/pug/home.pug --out lib/templates"
   },
   "version": "0.1.14",

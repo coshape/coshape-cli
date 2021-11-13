@@ -269,6 +269,8 @@ describe('Utils', function() {
    describe('watch file system', function() {
        it('watch folder', function(done) {
            utils.mkdirp(test_path, ()=>{
+               done()
+               return
                const watch_folder_name = "watch"
                const watch_folder_path = path.join(test_path, watch_folder_name)
                utils.mkdirp(watch_folder_path, ()=>{
